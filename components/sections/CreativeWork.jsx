@@ -16,19 +16,9 @@ const creativeItems = [
     image: "/creative/branding.jpg",
   },
   {
-    title: "Video / Reels",
-    category: "Motion · Short Form · Editing",
-    image: "/creative/video.jpg",
-  },
-  {
     title: "E-Commerce",
     category: "Amazon · A+ Content · Listings",
     image: "/creative/ecommerce.jpg",
-  },
-  {
-    title: "Event Design",
-    category: "Posters · Promotions · Campaigns",
-    image: "/creative/events.jpg",
   },
   {
     title: "Web Graphics",
