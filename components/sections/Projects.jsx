@@ -2,64 +2,233 @@
 
 import { motion } from "framer-motion";
 
-const projects = [
+const aiProjects = [
   {
     number: "01",
     title: "Nishaan",
-    category: "AI · Full Stack · Maps",
+    category: "AI Navigation",
     description:
-      "An AI-powered landmark-based navigation platform designed to help users locate places where traditional addressing systems are limited.",
+      "An AI-powered landmark-based navigation platform designed for places where traditional addressing systems are limited.",
     tech: ["Next.js", "FastAPI", "PostgreSQL", "AI"],
   },
   {
     number: "02",
-    title: "Signature Trips",
-    category: "Web Design · Client Work",
+    title: "Cotsle",
+    category: "AI Web Experience",
     description:
-      "A travel website designed and developed to create a polished digital presence with a clear and engaging browsing experience.",
-    tech: ["WordPress", "UI/UX", "Web Design"],
+      "A modern web experience enhanced with AI-powered functionality and smarter interactions.",
+    tech: ["Frontend", "AI Integration", "Responsive"],
   },
   {
     number: "03",
     title: "Luxe by MA",
-    category: "Web · Brand Experience",
+    category: "AI-Enhanced Experience",
     description:
-      "A modern web experience focused on presenting the brand through a refined, visually driven and responsive interface.",
-    tech: ["Web Development", "UI/UX", "Responsive Design"],
+      "A polished digital experience combining modern interface design with AI-powered functionality.",
+    tech: ["Web Development", "AI Integration", "UI/UX"],
+  },
+];
+
+const nonAiProjects = [
+  {
+    number: "01",
+    title: "Signature Trips",
+    category: "Travel Website",
+    description:
+      "A responsive travel website created with a polished visual experience and clear content structure.",
+    tech: ["WordPress", "UI/UX", "Web Design"],
   },
   {
-    number: "04",
-    title: "Cotsle",
-    category: "Web · Frontend",
-    description:
-      "A modern website project focused on responsive interfaces, visual presentation and a polished digital experience.",
-    tech: ["Frontend", "UI/UX", "Responsive Design"],
-  },
-  {
-    number: "05",
+    number: "02",
     title: "Time Bank",
-    category: "Full Stack · Platform",
+    category: "Skill Exchange Platform",
     description:
-      "A skill-exchange platform where users can trade their time and expertise through a structured digital system.",
+      "A platform where users can exchange skills and services using time-based credits.",
     tech: ["React", "Express.js", "MongoDB", "SQL"],
   },
   {
-    number: "06",
+    number: "03",
     title: "Donation Tracker",
-    category: "Blockchain · Python",
+    category: "Blockchain System",
     description:
-      "A blockchain-based donation tracking system designed around transparency, traceability and data integrity.",
+      "A blockchain-based donation tracking system focused on transparency and immutability.",
     tech: ["Python", "Blockchain", "Security"],
   },
   {
-    number: "07",
+    number: "04",
     title: "Lost & Found",
-    category: "Desktop · Database",
+    category: "Management System",
     description:
-      "A management system for organizing and tracking lost and found items through a structured database-driven interface.",
+      "A desktop system for managing and tracking lost and recovered items.",
     tech: ["Java", "Java Swing", "MySQL"],
   },
 ];
+
+function ProjectRow({ project, ai = false, index }) {
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 35 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.25 }}
+      transition={{
+        duration: 0.65,
+        delay: index * 0.06,
+        ease: [0.16, 1, 0.3, 1],
+      }}
+      className="
+        group
+        relative
+        overflow-hidden
+        border-b
+        border-white/10
+      "
+    >
+      {/* hover sweep */}
+      <div
+        className={`
+          absolute
+          inset-0
+          origin-left
+          scale-x-0
+          transition-transform
+          duration-700
+          ease-[cubic-bezier(0.16,1,0.3,1)]
+          group-hover:scale-x-100
+          ${
+            ai
+              ? "bg-gradient-to-r from-purple-900/25 via-purple-900/[0.05] to-transparent"
+              : "bg-gradient-to-r from-white/[0.035] via-white/[0.01] to-transparent"
+          }
+        `}
+      />
+
+      <div
+        className="
+          relative
+          z-10
+          grid
+          gap-5
+          py-8
+          sm:py-9
+          lg:grid-cols-[70px_1.05fr_0.8fr_40px]
+          lg:items-center
+          lg:gap-8
+        "
+      >
+        {/* number */}
+        <span
+          className={`
+            text-[10px]
+            tracking-[0.3em]
+            ${
+              ai
+                ? "text-purple-400/70"
+                : "text-white/20"
+            }
+          `}
+        >
+          {project.number}
+        </span>
+
+        {/* title */}
+        <div>
+          <p
+            className={`
+              mb-2
+              text-[8px]
+              uppercase
+              tracking-[0.3em]
+              ${
+                ai
+                  ? "text-purple-400"
+                  : "text-white/30"
+              }
+            `}
+          >
+            {project.category}
+          </p>
+
+          <h3
+            className="
+              text-[11vw]
+              font-black
+              uppercase
+              leading-[0.85]
+              tracking-[-0.055em]
+              text-white/90
+              transition-transform
+              duration-500
+              group-hover:translate-x-2
+              sm:text-[7vw]
+              lg:text-[3.5vw]
+            "
+          >
+            {project.title}
+          </h3>
+        </div>
+
+        {/* details */}
+        <div>
+          <p
+            className="
+              max-w-md
+              text-sm
+              leading-relaxed
+              text-white/35
+              transition-colors
+              group-hover:text-white/50
+            "
+          >
+            {project.description}
+          </p>
+
+          <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
+            {project.tech.map((tech) => (
+              <span
+                key={tech}
+                className="
+                  text-[8px]
+                  uppercase
+                  tracking-[0.18em]
+                  text-white/20
+                  transition-colors
+                  group-hover:text-purple-300/70
+                "
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* arrow */}
+        <div
+          className="
+            hidden
+            h-10
+            w-10
+            items-center
+            justify-center
+            rounded-full
+            border
+            border-white/10
+            text-lg
+            text-white/25
+            transition-all
+            duration-400
+            group-hover:rotate-45
+            group-hover:border-purple-400/50
+            group-hover:bg-purple-500
+            group-hover:text-white
+            lg:flex
+          "
+        >
+          ↗
+        </div>
+      </div>
+    </motion.article>
+  );
+}
 
 export default function Projects() {
   return (
@@ -70,51 +239,46 @@ export default function Projects() {
         overflow-hidden
         bg-black
         px-5
-        py-12
+        py-16
         sm:px-8
         md:px-12
         lg:px-16
-        lg:py-14
+        lg:py-20
       "
     >
-      {/* Background atmosphere */}
+      {/* background */}
       <div className="pointer-events-none absolute inset-0">
-        <div
+        <motion.div
+          animate={{
+            x: [0, 35, -15, 0],
+            y: [0, -20, 15, 0],
+          }}
+          transition={{
+            duration: 14,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
           className="
             absolute
-            right-[-180px]
-            top-[5%]
-            h-[500px]
-            w-[500px]
+            right-[-200px]
+            top-[18%]
+            h-[580px]
+            w-[580px]
             rounded-full
             bg-purple-700/10
-            blur-[170px]
-          "
-        />
-
-        <div
-          className="
-            absolute
-            bottom-[-220px]
-            left-[-180px]
-            h-[500px]
-            w-[500px]
-            rounded-full
-            bg-violet-600/10
-            blur-[180px]
+            blur-[190px]
           "
         />
       </div>
 
       <div className="relative z-10 mx-auto max-w-[1600px]">
-        {/* TOP LABEL */}
+        {/* label */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
           className="
-            mb-6
+            mb-8
             flex
             items-center
             justify-between
@@ -125,48 +289,46 @@ export default function Projects() {
           "
         >
           <span className="text-purple-400">
-            04 — Selected Work
+            04 — Projects
           </span>
 
           <span className="hidden text-white/20 sm:block">
-            Projects / Experiments / Products
+            Selected Work
           </span>
         </motion.div>
 
-        {/* COMPACT HEADING */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{
-            duration: 0.8,
-            ease: [0.16, 1, 0.3, 1],
-          }}
+        {/* heading */}
+        <div
           className="
-            mb-8
+            mb-16
             grid
-            gap-5
-            border-b
-            border-white/10
-            pb-8
-            lg:grid-cols-[1fr_0.7fr]
+            gap-6
+            lg:grid-cols-[1.1fr_0.9fr]
             lg:items-end
           "
         >
-          <h2
+          <motion.h2
+            initial={{ opacity: 0, y: 45 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.85,
+              ease: [0.16, 1, 0.3, 1],
+            }}
             className="
-              text-[13vw]
+              text-[15vw]
               font-black
               uppercase
               leading-[0.82]
               tracking-[-0.06em]
               sm:text-[10vw]
-              lg:text-[5.8vw]
+              lg:text-[6.2vw]
             "
           >
-            Selected{" "}
+            Selected
             <span
               className="
+                block
                 bg-gradient-to-r
                 from-purple-300
                 via-violet-500
@@ -177,292 +339,173 @@ export default function Projects() {
             >
               Projects.
             </span>
-          </h2>
+          </motion.h2>
 
-          <div className="lg:pb-1">
-            <p
-              className="
-                max-w-md
-                text-sm
-                leading-relaxed
-                text-white/35
-              "
-            >
-              A selection of web, AI and software projects exploring
-              functionality, problem solving and digital experience.
-            </p>
-
-            <span
-              className="
-                mt-4
-                block
-                text-[9px]
-                uppercase
-                tracking-[0.3em]
-                text-white/20
-              "
-            >
-              07 Selected Projects
-            </span>
-          </div>
-        </motion.div>
-
-        {/* PROJECT LIST */}
-        <div className="border-t border-white/10">
-          {projects.map((project, index) => (
-            <motion.article
-              key={project.title}
-              initial={{
-                opacity: 0,
-                y: 40,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-                amount: 0.15,
-              }}
-              transition={{
-                duration: 0.7,
-                delay: index * 0.04,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="
-                group
-                relative
-                overflow-hidden
-                border-b
-                border-white/10
-                py-7
-                sm:py-8
-                lg:py-9
-              "
-            >
-              {/* Hover background */}
-              <div
-                className="
-                  absolute
-                  inset-0
-                  origin-left
-                  scale-x-0
-                  bg-gradient-to-r
-                  from-purple-900/25
-                  via-purple-800/[0.08]
-                  to-transparent
-                  transition-transform
-                  duration-700
-                  ease-[cubic-bezier(0.16,1,0.3,1)]
-                  group-hover:scale-x-100
-                "
-              />
-
-              <div
-                className="
-                  relative
-                  z-10
-                  grid
-                  gap-6
-                  lg:grid-cols-[60px_1.3fr_0.9fr_60px]
-                  lg:items-center
-                "
-              >
-                {/* Number */}
-                <span
-                  className="
-                    text-xs
-                    tracking-[0.3em]
-                    text-white/20
-                    transition-colors
-                    duration-300
-                    group-hover:text-purple-400
-                  "
-                >
-                  {project.number}
-                </span>
-
-                {/* Name */}
-                <div>
-                  <p
-                    className="
-                      mb-3
-                      text-[9px]
-                      uppercase
-                      tracking-[0.3em]
-                      text-purple-400/70
-                      sm:text-[10px]
-                    "
-                  >
-                    {project.category}
-                  </p>
-
-                  <h3
-                    className="
-                      text-[10vw]
-                      font-black
-                      uppercase
-                      leading-[0.88]
-                      tracking-[-0.055em]
-                      text-white/85
-                      transition-all
-                      duration-500
-                      group-hover:translate-x-3
-                      group-hover:text-white
-                      sm:text-[7vw]
-                      lg:text-[3.7vw]
-                    "
-                  >
-                    {project.title}
-                  </h3>
-                </div>
-
-                {/* Description */}
-                <div>
-                  <p
-                    className="
-                      max-w-md
-                      text-sm
-                      leading-relaxed
-                      text-white/35
-                      transition-colors
-                      duration-300
-                      group-hover:text-white/55
-                    "
-                  >
-                    {project.description}
-                  </p>
-
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {project.tech.map((item) => (
-                      <span
-                        key={item}
-                        className="
-                          rounded-full
-                          border
-                          border-white/10
-                          px-3
-                          py-1.5
-                          text-[8px]
-                          uppercase
-                          tracking-[0.18em]
-                          text-white/30
-                          transition-all
-                          duration-300
-                          group-hover:border-purple-500/30
-                          group-hover:bg-purple-500/[0.04]
-                          group-hover:text-purple-300
-                          sm:text-[9px]
-                        "
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Arrow */}
-                <div className="flex justify-start lg:justify-end">
-                  <div
-                    className="
-                      flex
-                      h-11
-                      w-11
-                      items-center
-                      justify-center
-                      rounded-full
-                      border
-                      border-white/10
-                      text-xl
-                      text-white/30
-                      transition-all
-                      duration-500
-                      group-hover:rotate-45
-                      group-hover:scale-110
-                      group-hover:border-purple-400
-                      group-hover:bg-purple-500
-                      group-hover:text-white
-                    "
-                  >
-                    ↗
-                  </div>
-                </div>
-              </div>
-
-              {/* Background number */}
-              <span
-                className="
-                  pointer-events-none
-                  absolute
-                  -bottom-10
-                  right-[5%]
-                  text-[120px]
-                  font-black
-                  leading-none
-                  text-white/[0.012]
-                  transition-all
-                  duration-700
-                  group-hover:text-purple-500/[0.04]
-                  sm:text-[160px]
-                "
-              >
-                {project.number}
-              </span>
-            </motion.article>
-          ))}
-        </div>
-
-        {/* BOTTOM */}
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 30,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            duration: 0.8,
-          }}
-          className="
-            mt-10
-            flex
-            flex-col
-            gap-7
-            md:flex-row
-            md:items-end
-            md:justify-between
-          "
-        >
-          <p
+          <motion.p
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.12 }}
             className="
-              max-w-xl
+              max-w-md
               text-sm
               leading-relaxed
               text-white/35
               sm:text-base
+              lg:justify-self-end
             "
           >
-            From client websites to AI-powered applications and software
-            systems, my work explores the intersection of development,
-            creativity and practical problem solving.
-          </p>
+            A mix of AI-enhanced products, websites and software systems —
+            separated by how intelligence is used in each experience.
+          </motion.p>
+        </div>
 
-          <span
+        {/* AI SECTION */}
+        <div>
+          <div
+            className="
+              mb-2
+              flex
+              items-end
+              justify-between
+              border-b
+              border-purple-500/20
+              pb-5
+            "
+          >
+            <div>
+              <p
+                className="
+                  mb-2
+                  text-[8px]
+                  uppercase
+                  tracking-[0.3em]
+                  text-purple-400
+                "
+              >
+                Collection 01
+              </p>
+
+              <h3
+                className="
+                  text-3xl
+                  font-semibold
+                  tracking-[-0.04em]
+                  sm:text-4xl
+                "
+              >
+                AI-Powered
+              </h3>
+            </div>
+
+            <span
+              className="
+                text-5xl
+                font-black
+                text-purple-500/10
+              "
+            >
+              03
+            </span>
+          </div>
+
+          {aiProjects.map((project, index) => (
+            <ProjectRow
+              key={project.title}
+              project={project}
+              ai
+              index={index}
+            />
+          ))}
+        </div>
+
+        {/* divider */}
+        <div
+          className="
+            my-14
+            flex
+            items-center
+            gap-5
+          "
+        >
+          <div className="h-[1px] flex-1 bg-white/10" />
+
+          <motion.span
+            animate={{ rotate: [0, 180, 360] }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "linear",
+            }}
             className="
               text-xs
-              uppercase
-              tracking-[0.3em]
-              text-purple-400
+              tracking-[0.4em]
+              text-purple-400/60
             "
           >
-            More work coming soon ↗
-          </span>
-        </motion.div>
+            ✦
+          </motion.span>
+
+          <div className="h-[1px] flex-1 bg-white/10" />
+        </div>
+
+        {/* NON AI SECTION */}
+        <div>
+          <div
+            className="
+              mb-2
+              flex
+              items-end
+              justify-between
+              border-b
+              border-white/10
+              pb-5
+            "
+          >
+            <div>
+              <p
+                className="
+                  mb-2
+                  text-[8px]
+                  uppercase
+                  tracking-[0.3em]
+                  text-white/25
+                "
+              >
+                Collection 02
+              </p>
+
+              <h3
+                className="
+                  text-3xl
+                  font-semibold
+                  tracking-[-0.04em]
+                  sm:text-4xl
+                "
+              >
+                Non-AI
+              </h3>
+            </div>
+
+            <span
+              className="
+                text-5xl
+                font-black
+                text-white/[0.04]
+              "
+            >
+              04
+            </span>
+          </div>
+
+          {nonAiProjects.map((project, index) => (
+            <ProjectRow
+              key={project.title}
+              project={project}
+              index={index}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
