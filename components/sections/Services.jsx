@@ -1,25 +1,30 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const services = [
   {
     title: "Web Development",
+    slug: "web-development",
     description:
       "Modern, responsive websites built with clean interfaces, strong performance and scalable structure.",
   },
   {
     title: "AI Integration",
+    slug: "ai-integration",
     description:
       "AI-powered features such as assistants, smart workflows and API-driven experiences integrated into web products.",
   },
   {
     title: "Frontend Development",
+    slug: "frontend-development",
     description:
       "Interactive interfaces using modern frameworks with a focus on responsiveness, usability and polished motion.",
   },
   {
     title: "Creative Design",
+    slug: "creative-design",
     description:
       "Visual design for digital platforms, including social media creatives, branded content and interface concepts.",
   },
@@ -27,16 +32,32 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="relative min-h-screen bg-[#070707] overflow-hidden px-5 sm:px-8 md:px-12 lg:px-16 py-20 sm:py-24">
-
+    <section
+      id="services"
+      className="
+        relative
+        min-h-screen
+        overflow-hidden
+        bg-[#070707]
+        px-5
+        py-20
+        sm:px-8
+        sm:py-24
+        md:px-12
+        lg:px-16
+      "
+    >
       {/* Purple atmosphere */}
-      <div className="absolute inset-0 pointer-events-none">
-
+      <div className="pointer-events-none absolute inset-0">
         <div
           className="
-            absolute top-1/2 left-1/2
-            -translate-x-1/2 -translate-y-1/2
-            w-[520px] h-[520px]
+            absolute
+            left-1/2
+            top-1/2
+            h-[520px]
+            w-[520px]
+            -translate-x-1/2
+            -translate-y-1/2
             rounded-full
             bg-purple-700/10
             blur-[160px]
@@ -45,18 +66,28 @@ export default function Services() {
 
         <div
           className="
-            absolute top-0 right-0
-            w-[350px] h-[350px]
+            absolute
+            right-0
+            top-0
+            h-[350px]
+            w-[350px]
             rounded-full
             bg-violet-500/10
             blur-[140px]
           "
         />
-
       </div>
 
-      <div className="relative z-10 min-h-[80vh] flex flex-col justify-center">
-
+      <div
+        className="
+          relative
+          z-10
+          flex
+          min-h-[80vh]
+          flex-col
+          justify-center
+        "
+      >
         {/* Section label */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -64,19 +95,19 @@ export default function Services() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
           className="
+            mb-10
             flex
             items-center
             justify-between
-            mb-10
           "
         >
           <p
             className="
               text-[10px]
-              sm:text-xs
               uppercase
               tracking-[0.35em]
               text-purple-400
+              sm:text-xs
             "
           >
             03 — Services
@@ -85,23 +116,29 @@ export default function Services() {
           <p
             className="
               hidden
-              sm:block
               text-[10px]
-              sm:text-xs
               uppercase
               tracking-[0.3em]
               text-white/20
+              sm:block
+              sm:text-xs
             "
           >
             What I can do
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-
+        <div
+          className="
+            grid
+            items-start
+            gap-16
+            lg:grid-cols-2
+            lg:gap-24
+          "
+        >
           {/* LEFT SIDE */}
           <div className="lg:sticky lg:top-28">
-
             <motion.h2
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -112,12 +149,12 @@ export default function Services() {
               }}
               className="
                 text-[12vw]
-                sm:text-[9vw]
-                lg:text-[6vw]
                 font-black
                 uppercase
                 leading-[0.88]
                 tracking-[-0.05em]
+                sm:text-[9vw]
+                lg:text-[6vw]
               "
             >
               I create
@@ -133,19 +170,19 @@ export default function Services() {
                 ease: [0.16, 1, 0.3, 1],
               }}
               className="
-                text-[12vw]
-                sm:text-[9vw]
-                lg:text-[6vw]
-                font-black
-                uppercase
-                leading-[0.88]
-                tracking-[-0.05em]
                 bg-gradient-to-r
                 from-purple-400
                 via-violet-500
                 to-purple-600
                 bg-clip-text
+                text-[12vw]
+                font-black
+                uppercase
+                leading-[0.88]
+                tracking-[-0.05em]
                 text-transparent
+                sm:text-[9vw]
+                lg:text-[6vw]
               "
             >
               digital solutions.
@@ -162,9 +199,9 @@ export default function Services() {
               className="
                 mt-8
                 max-w-lg
-                text-white/45
-                leading-relaxed
                 text-sm
+                leading-relaxed
+                text-white/45
                 sm:text-base
               "
             >
@@ -173,7 +210,6 @@ export default function Services() {
               distinctive.
             </motion.p>
 
-            {/* Small detail */}
             <motion.div
               initial={{ opacity: 0, scaleX: 0 }}
               whileInView={{ opacity: 1, scaleX: 1 }}
@@ -192,12 +228,10 @@ export default function Services() {
                 to-transparent
               "
             />
-
           </div>
 
           {/* RIGHT SIDE */}
           <div className="flex flex-col">
-
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
@@ -218,99 +252,176 @@ export default function Services() {
                   delay: index * 0.08,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="
-                  group
-                  border-t
-                  border-white/10
-                  py-7
-                  sm:py-8
-                  cursor-default
-                "
               >
+                <Link
+                  href={`/services/${service.slug}`}
+                  className="
+                    group
+                    relative
+                    block
+                    overflow-hidden
+                    border-t
+                    border-white/10
+                    py-7
+                    sm:py-8
+                  "
+                >
+                  {/* Hover background */}
+                  <div
+                    className="
+                      absolute
+                      inset-0
+                      origin-left
+                      scale-x-0
+                      bg-gradient-to-r
+                      from-purple-900/20
+                      via-purple-800/[0.04]
+                      to-transparent
+                      transition-transform
+                      duration-700
+                      ease-[cubic-bezier(0.16,1,0.3,1)]
+                      group-hover:scale-x-100
+                    "
+                  />
 
-                <div className="flex items-start justify-between gap-6">
+                  <div
+                    className="
+                      relative
+                      z-10
+                      flex
+                      items-start
+                      justify-between
+                      gap-6
+                    "
+                  >
+                    <div className="flex-1">
+                      <div className="flex items-center gap-4">
+                        {/* Number */}
+                        <span
+                          className="
+                            text-[10px]
+                            tracking-[0.25em]
+                            text-white/20
+                            transition-colors
+                            duration-300
+                            group-hover:text-purple-400
+                          "
+                        >
+                          0{index + 1}
+                        </span>
 
-                  <div className="flex-1">
+                        {/* Title */}
+                        <h3
+                          className="
+                            text-xl
+                            font-medium
+                            tracking-[-0.03em]
+                            text-white/80
+                            transition-all
+                            duration-300
+                            group-hover:translate-x-2
+                            group-hover:text-purple-400
+                            sm:text-2xl
+                            md:text-3xl
+                          "
+                        >
+                          {service.title}
+                        </h3>
+                      </div>
 
-                    <div className="flex items-center gap-4">
-
-                      <span
+                      {/* Description */}
+                      <p
                         className="
-                          text-[10px]
-                          tracking-[0.25em]
-                          text-white/20
+                          ml-[42px]
+                          mt-4
+                          max-w-xl
+                          text-sm
+                          leading-relaxed
+                          text-white/35
                           transition-colors
                           duration-300
-                          group-hover:text-purple-400
+                          group-hover:text-white/50
+                          sm:text-base
                         "
                       >
-                        0{index + 1}
-                      </span>
+                        {service.description}
+                      </p>
 
-                      <h3
+                      {/* View details appears on hover */}
+                      <div
                         className="
-                          text-xl
-                          sm:text-2xl
-                          md:text-3xl
-                          font-medium
-                          tracking-[-0.03em]
-                          text-white/80
-                          transition-all
-                          duration-300
-                          group-hover:text-purple-400
-                          group-hover:translate-x-2
+                          ml-[42px]
+                          mt-5
+                          flex
+                          items-center
+                          gap-3
+                          overflow-hidden
                         "
                       >
-                        {service.title}
-                      </h3>
+                        <span
+                          className="
+                            translate-y-5
+                            text-[8px]
+                            uppercase
+                            tracking-[0.25em]
+                            text-purple-400
+                            opacity-0
+                            transition-all
+                            duration-300
+                            group-hover:translate-y-0
+                            group-hover:opacity-100
+                          "
+                        >
+                          View Service
+                        </span>
 
+                        <span
+                          className="
+                            h-[1px]
+                            w-0
+                            bg-purple-400
+                            transition-all
+                            duration-500
+                            group-hover:w-10
+                          "
+                        />
+                      </div>
                     </div>
 
-                    <p
+                    {/* Arrow */}
+                    <div
                       className="
-                        mt-4
-                        ml-[42px]
-                        max-w-xl
-                        text-sm
-                        sm:text-base
-                        leading-relaxed
-                        text-white/35
-                        transition-colors
+                        flex
+                        h-11
+                        w-11
+                        shrink-0
+                        items-center
+                        justify-center
+                        rounded-full
+                        border
+                        border-white/10
+                        text-xl
+                        text-white/20
+                        transition-all
                         duration-300
-                        group-hover:text-white/50
+
+                        group-hover:-translate-y-1
+                        group-hover:translate-x-1
+                        group-hover:rotate-45
+                        group-hover:border-purple-400
+                        group-hover:bg-purple-500
+                        group-hover:text-white
                       "
                     >
-                      {service.description}
-                    </p>
-
+                      ↗
+                    </div>
                   </div>
-
-                  {/* Arrow */}
-                  <motion.span
-                    className="
-                      text-2xl
-                      text-white/20
-                      transition-colors
-                      duration-300
-                      group-hover:text-purple-400
-                    "
-                    whileHover={{
-                      x: 5,
-                      y: -5,
-                    }}
-                  >
-                    ↗
-                  </motion.span>
-
-                </div>
-
+                </Link>
               </motion.div>
             ))}
 
             <div className="border-t border-white/10" />
-
           </div>
-
         </div>
       </div>
     </section>

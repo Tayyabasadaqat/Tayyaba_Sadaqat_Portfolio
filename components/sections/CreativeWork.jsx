@@ -1,349 +1,536 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 
-const creativeWork = [
+const creativeItems = [
   {
-    number: "01",
     title: "Social Media",
-    subtitle: "Posts · Campaigns · Content",
+    category: "Posts · Campaigns · Content",
     image: "/creative/social-media.jpg",
   },
   {
-    number: "02",
     title: "Branding",
-    subtitle: "Identity · Visual Systems · Logos",
+    category: "Identity · Visual Systems · Logos",
     image: "/creative/branding.jpg",
   },
   {
-    number: "03",
     title: "Video / Reels",
-    subtitle: "Motion · Short Form · Editing",
+    category: "Motion · Short Form · Editing",
     image: "/creative/video.jpg",
   },
   {
-    number: "04",
     title: "E-Commerce",
-    subtitle: "Amazon · A+ Content · Listings",
+    category: "Amazon · A+ Content · Listings",
     image: "/creative/ecommerce.jpg",
   },
   {
-    number: "05",
     title: "Event Design",
-    subtitle: "Posters · Promotions · Campaigns",
+    category: "Posters · Promotions · Campaigns",
     image: "/creative/events.jpg",
   },
   {
-    number: "06",
     title: "Web Graphics",
-    subtitle: "Landing Pages · Funnels · Digital",
+    category: "Landing Pages · Funnels · Digital",
     image: "/creative/web-graphics.jpg",
   },
 ];
 
 export default function CreativeWork() {
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const activeItem =
+    activeIndex !== null ? creativeItems[activeIndex] : null;
+
+  const nextItem = () => {
+    setActiveIndex((prev) =>
+      prev === creativeItems.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const prevItem = () => {
+    setActiveIndex((prev) =>
+      prev === 0 ? creativeItems.length - 1 : prev - 1
+    );
+  };
+
   return (
-    <section
-      id="creative-work"
-      className="
-        relative
-        overflow-hidden
-        bg-[#070707]
-        px-5
-        py-16
-        sm:px-8
-        md:px-12
-        lg:px-16
-        lg:py-20
-      "
-    >
-      {/* Background glow */}
-      <div className="pointer-events-none absolute inset-0">
-        <div
-          className="
-            absolute
-            right-[-180px]
-            top-[10%]
-            h-[520px]
-            w-[520px]
-            rounded-full
-            bg-purple-700/10
-            blur-[180px]
-          "
-        />
+    <>
+      <section
+        id="creative-work"
+        className="
+          relative
+          overflow-hidden
+          bg-[#050505]
+          px-5
+          py-16
+          sm:px-8
+          md:px-12
+          lg:px-16
+          lg:py-20
+        "
+      >
+        <div className="mx-auto max-w-[1600px]">
 
-        <div
-          className="
-            absolute
-            bottom-[-220px]
-            left-[-160px]
-            h-[480px]
-            w-[480px]
-            rounded-full
-            bg-violet-600/[0.07]
-            blur-[180px]
-          "
-        />
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-[1600px]">
-        {/* Top label */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="
-            mb-10
-            flex
-            items-center
-            justify-between
-            text-[10px]
-            uppercase
-            tracking-[0.35em]
-            sm:text-xs
-          "
-        >
-          <span className="text-purple-400">
-            07 — Creative Work
-          </span>
-
-          <span className="hidden text-white/20 sm:block">
-            Design / Motion / Visuals
-          </span>
-        </motion.div>
-
-        {/* Heading */}
-        <div
-          className="
-            mb-12
-            grid
-            gap-7
-            lg:grid-cols-[1.2fr_0.8fr]
-            lg:items-end
-          "
-        >
-          <motion.h2
-            initial={{ opacity: 0, y: 50 }}
+          {/* Label */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{
-              duration: 0.9,
-              ease: [0.16, 1, 0.3, 1],
-            }}
             className="
-              text-[14vw]
-              font-black
-              uppercase
-              leading-[0.82]
-              tracking-[-0.06em]
-              sm:text-[10vw]
-              lg:text-[6.2vw]
+              mb-8
+              flex
+              items-center
+              justify-between
             "
           >
-            Selected
-            <span
+            <p
               className="
-                block
-                bg-gradient-to-r
-                from-purple-300
-                via-violet-500
-                to-purple-700
-                bg-clip-text
-                text-transparent
+                text-[10px]
+                uppercase
+                tracking-[0.35em]
+                text-purple-400
+                sm:text-xs
               "
             >
-              Creative Work.
-            </span>
-          </motion.h2>
+              07 — Creative Work
+            </p>
 
-          <motion.p
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.15 }}
+            <p
+              className="
+                hidden
+                text-[10px]
+                uppercase
+                tracking-[0.3em]
+                text-white/20
+                sm:block
+              "
+            >
+              Selected Visuals
+            </p>
+          </motion.div>
+
+          {/* Heading */}
+          <div
             className="
-              max-w-md
-              text-sm
-              leading-relaxed
-              text-white/35
-              sm:text-base
-              lg:justify-self-end
+              mb-14
+              grid
+              gap-6
+              lg:grid-cols-[1.1fr_0.9fr]
+              lg:items-end
             "
           >
-            Visual work across branding, digital content, marketing,
-            e-commerce and motion design.
-          </motion.p>
-        </div>
-
-        {/* Gallery */}
-        <div
-          className="
-            grid
-            gap-4
-            md:grid-cols-2
-          "
-        >
-          {creativeWork.map((item, index) => (
-            <motion.article
-              key={item.title}
-              initial={{
-                opacity: 0,
-                y: 40,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-                amount: 0.2,
-              }}
+            <motion.h2
+              initial={{ opacity: 0, y: 45 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{
-                duration: 0.7,
-                delay: index * 0.06,
+                duration: 0.85,
                 ease: [0.16, 1, 0.3, 1],
               }}
               className="
-                group
-                relative
-                min-h-[340px]
-                overflow-hidden
-                border
-                border-white/10
-                bg-black
-                sm:min-h-[420px]
+                text-[14vw]
+                font-black
+                uppercase
+                leading-[0.82]
+                tracking-[-0.06em]
+                sm:text-[10vw]
+                lg:text-[6vw]
               "
             >
-              {/* Image */}
-              <div className="absolute inset-0">
-                <img
+              Selected
+
+              <span
+                className="
+                  block
+                  bg-gradient-to-r
+                  from-purple-300
+                  via-violet-500
+                  to-purple-700
+                  bg-clip-text
+                  text-transparent
+                "
+              >
+                Creative Work.
+              </span>
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="
+                max-w-md
+                text-sm
+                leading-relaxed
+                text-white/35
+                sm:text-base
+                lg:justify-self-end
+              "
+            >
+              A selection of visual work across branding, social media,
+              ecommerce, motion and digital design.
+            </motion.p>
+          </div>
+
+          {/* Gallery */}
+          <div className="grid gap-5 md:grid-cols-2">
+            {creativeItems.map((item, index) => (
+              <motion.button
+                key={item.title}
+                type="button"
+                onClick={() => setActiveIndex(index)}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{
+                  once: true,
+                  amount: 0.2,
+                }}
+                transition={{
+                  duration: 0.7,
+                  delay: index * 0.05,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="
+                  group
+                  relative
+                  aspect-[4/3]
+                  w-full
+                  overflow-hidden
+                  bg-[#0b0b0b]
+                  text-left
+                "
+              >
+                {/* Image */}
+                <Image
                   src={item.image}
                   alt={item.title}
+                  fill
                   className="
-                    h-full
-                    w-full
                     object-cover
-                    opacity-50
                     grayscale
                     transition-all
                     duration-700
-                    group-hover:scale-105
-                    group-hover:opacity-70
+                    ease-out
+                    group-hover:scale-[1.035]
                     group-hover:grayscale-0
                   "
                 />
 
+                {/* Dark overlay */}
                 <div
                   className="
                     absolute
                     inset-0
                     bg-gradient-to-t
-                    from-black
-                    via-black/30
-                    to-black/10
+                    from-black/85
+                    via-black/10
+                    to-transparent
                   "
                 />
 
+                {/* Purple hover wash */}
                 <div
                   className="
                     absolute
                     inset-0
-                    bg-purple-900/0
+                    bg-purple-800/0
                     transition-colors
                     duration-500
-                    group-hover:bg-purple-900/10
+                    group-hover:bg-purple-800/10
                   "
                 />
-              </div>
 
-              {/* Content */}
-              <div
-                className="
-                  relative
-                  z-10
-                  flex
-                  min-h-[340px]
-                  flex-col
-                  justify-between
-                  p-6
-                  sm:min-h-[420px]
-                  sm:p-8
-                "
-              >
-                <div className="flex items-start justify-between">
-                  <span
-                    className="
-                      text-xs
-                      tracking-[0.3em]
-                      text-white/40
-                      transition-colors
-                      group-hover:text-purple-300
-                    "
-                  >
-                    {item.number}
-                  </span>
+                {/* Number */}
+                <span
+                  className="
+                    absolute
+                    left-5
+                    top-5
+                    text-[9px]
+                    tracking-[0.28em]
+                    text-white/45
+                  "
+                >
+                  {String(index + 1).padStart(2, "0")}
+                </span>
 
-                  <div
-                    className="
-                      flex
-                      h-11
-                      w-11
-                      items-center
-                      justify-center
-                      rounded-full
-                      border
-                      border-white/20
-                      text-xl
-                      text-white/50
-                      transition-all
-                      duration-500
-                      group-hover:rotate-45
-                      group-hover:border-purple-400
-                      group-hover:bg-purple-500
-                      group-hover:text-white
-                    "
-                  >
-                    ↗
-                  </div>
-                </div>
+                {/* View */}
+                <span
+                  className="
+                    absolute
+                    right-5
+                    top-5
+                    text-[8px]
+                    uppercase
+                    tracking-[0.22em]
+                    text-white/40
+                    opacity-0
+                    transition-all
+                    duration-300
+                    group-hover:opacity-100
+                  "
+                >
+                  View ↗
+                </span>
 
-                <div>
+                {/* Content */}
+                <div
+                  className="
+                    absolute
+                    bottom-0
+                    left-0
+                    right-0
+                    p-5
+                    sm:p-7
+                  "
+                >
                   <p
                     className="
-                      mb-3
-                      text-[9px]
+                      mb-2
+                      text-[8px]
                       uppercase
-                      tracking-[0.3em]
-                      text-purple-300/80
+                      tracking-[0.25em]
+                      text-purple-300
                     "
                   >
-                    {item.subtitle}
+                    {item.category}
                   </p>
 
                   <h3
                     className="
-                      text-[11vw]
-                      font-black
-                      uppercase
-                      leading-[0.85]
-                      tracking-[-0.055em]
+                      text-3xl
+                      font-semibold
+                      tracking-[-0.04em]
                       text-white
                       transition-transform
                       duration-500
-                      group-hover:translate-x-2
-                      sm:text-[6vw]
-                      lg:text-[3.8vw]
+                      group-hover:translate-x-1
+                      sm:text-4xl
                     "
                   >
                     {item.title}
                   </h3>
                 </div>
-              </div>
-            </motion.article>
-          ))}
+              </motion.button>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* LIGHTBOX */}
+      <AnimatePresence>
+        {activeItem && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="
+              fixed
+              inset-0
+              z-[9999]
+              flex
+              items-center
+              justify-center
+              bg-black/95
+              px-4
+              py-5
+              backdrop-blur-xl
+              sm:px-8
+            "
+          >
+            {/* Close */}
+            <button
+              type="button"
+              onClick={() => setActiveIndex(null)}
+              className="
+                absolute
+                right-5
+                top-5
+                z-20
+                flex
+                h-10
+                w-10
+                items-center
+                justify-center
+                rounded-full
+                border
+                border-white/10
+                text-xl
+                text-white/60
+                transition-all
+                hover:border-purple-400/50
+                hover:bg-purple-500
+                hover:text-white
+                sm:right-8
+                sm:top-8
+              "
+            >
+              ×
+            </button>
+
+            {/* Counter */}
+            <div
+              className="
+                absolute
+                left-5
+                top-6
+                z-20
+                text-[9px]
+                uppercase
+                tracking-[0.3em]
+                text-white/25
+                sm:left-8
+                sm:top-9
+              "
+            >
+              {String(activeIndex + 1).padStart(2, "0")}
+              <span className="mx-2 text-white/10">/</span>
+              {String(creativeItems.length).padStart(2, "0")}
+            </div>
+
+            {/* Main viewer */}
+            <motion.div
+              key={activeItem.image}
+              initial={{
+                opacity: 0,
+                scale: 0.97,
+                y: 15,
+              }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+                y: 0,
+              }}
+              exit={{
+                opacity: 0,
+                scale: 0.97,
+              }}
+              transition={{
+                duration: 0.4,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="
+                flex
+                h-full
+                w-full
+                max-w-[1400px]
+                flex-col
+                justify-center
+              "
+            >
+              {/* Image area */}
+              <div
+                className="
+                  relative
+                  mx-auto
+                  h-[65vh]
+                  w-full
+                  max-w-[1100px]
+                "
+              >
+                <Image
+                  src={activeItem.image}
+                  alt={activeItem.title}
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
+
+              {/* Info */}
+              <div
+                className="
+                  mx-auto
+                  mt-5
+                  flex
+                  w-full
+                  max-w-[1100px]
+                  items-end
+                  justify-between
+                  gap-5
+                  border-t
+                  border-white/10
+                  pt-5
+                "
+              >
+                <div>
+                  <p
+                    className="
+                      mb-2
+                      text-[8px]
+                      uppercase
+                      tracking-[0.28em]
+                      text-purple-400
+                    "
+                  >
+                    {activeItem.category}
+                  </p>
+
+                  <h3
+                    className="
+                      text-2xl
+                      font-semibold
+                      tracking-[-0.04em]
+                      sm:text-3xl
+                    "
+                  >
+                    {activeItem.title}
+                  </h3>
+                </div>
+
+                {/* Navigation */}
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={prevItem}
+                    className="
+                      flex
+                      h-10
+                      w-10
+                      items-center
+                      justify-center
+                      rounded-full
+                      border
+                      border-white/10
+                      text-white/40
+                      transition-all
+                      hover:border-purple-400/50
+                      hover:text-purple-400
+                    "
+                  >
+                    ←
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={nextItem}
+                    className="
+                      flex
+                      h-10
+                      w-10
+                      items-center
+                      justify-center
+                      rounded-full
+                      border
+                      border-white/10
+                      text-white/40
+                      transition-all
+                      hover:border-purple-400/50
+                      hover:text-purple-400
+                    "
+                  >
+                    →
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

@@ -1,11 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const aiProjects = [
   {
     number: "01",
     title: "Nishaan",
+    slug: "nishaan",
     category: "AI Navigation",
     description:
       "An AI-powered landmark-based navigation platform designed for places where traditional addressing systems are limited.",
@@ -14,6 +16,7 @@ const aiProjects = [
   {
     number: "02",
     title: "Cotsle",
+    slug: "cotsle",
     category: "AI Web Experience",
     description:
       "A modern web experience enhanced with AI-powered functionality and smarter interactions.",
@@ -22,6 +25,7 @@ const aiProjects = [
   {
     number: "03",
     title: "Luxe by MA",
+    slug: "luxe-by-ma",
     category: "AI-Enhanced Experience",
     description:
       "A polished digital experience combining modern interface design with AI-powered functionality.",
@@ -33,6 +37,7 @@ const nonAiProjects = [
   {
     number: "01",
     title: "Signature Trips",
+    slug: "signature-trips",
     category: "Travel Website",
     description:
       "A responsive travel website created with a polished visual experience and clear content structure.",
@@ -41,6 +46,7 @@ const nonAiProjects = [
   {
     number: "02",
     title: "Time Bank",
+    slug: "time-bank",
     category: "Skill Exchange Platform",
     description:
       "A platform where users can exchange skills and services using time-based credits.",
@@ -49,6 +55,7 @@ const nonAiProjects = [
   {
     number: "03",
     title: "Donation Tracker",
+    slug: "donation-tracker",
     category: "Blockchain System",
     description:
       "A blockchain-based donation tracking system focused on transparency and immutability.",
@@ -57,6 +64,7 @@ const nonAiProjects = [
   {
     number: "04",
     title: "Lost & Found",
+    slug: "lost-found",
     category: "Management System",
     description:
       "A desktop system for managing and tracking lost and recovered items.",
@@ -83,9 +91,10 @@ function ProjectRow({ project, ai = false, index }) {
         border-white/10
       "
     >
-      {/* hover sweep */}
+      {/* Hover sweep */}
       <div
         className={`
+          pointer-events-none
           absolute
           inset-0
           origin-left
@@ -102,7 +111,10 @@ function ProjectRow({ project, ai = false, index }) {
         `}
       />
 
-      <div
+      {/* Whole project row is clickable */}
+      <Link
+        href={`/projects/${project.slug}`}
+        aria-label={`View ${project.title} project`}
         className="
           relative
           z-10
@@ -115,22 +127,24 @@ function ProjectRow({ project, ai = false, index }) {
           lg:gap-8
         "
       >
-        {/* number */}
+        {/* Number */}
         <span
           className={`
             text-[10px]
             tracking-[0.3em]
+            transition-colors
+            duration-300
             ${
               ai
-                ? "text-purple-400/70"
-                : "text-white/20"
+                ? "text-purple-400/70 group-hover:text-purple-300"
+                : "text-white/20 group-hover:text-white/40"
             }
           `}
         >
           {project.number}
         </span>
 
-        {/* title */}
+        {/* Title */}
         <div>
           <p
             className={`
@@ -156,9 +170,10 @@ function ProjectRow({ project, ai = false, index }) {
               leading-[0.85]
               tracking-[-0.055em]
               text-white/90
-              transition-transform
+              transition-all
               duration-500
               group-hover:translate-x-2
+              group-hover:text-white
               sm:text-[7vw]
               lg:text-[3.5vw]
             "
@@ -167,7 +182,7 @@ function ProjectRow({ project, ai = false, index }) {
           </h3>
         </div>
 
-        {/* details */}
+        {/* Details */}
         <div>
           <p
             className="
@@ -176,7 +191,8 @@ function ProjectRow({ project, ai = false, index }) {
               leading-relaxed
               text-white/35
               transition-colors
-              group-hover:text-white/50
+              duration-300
+              group-hover:text-white/55
             "
           >
             {project.description}
@@ -192,6 +208,7 @@ function ProjectRow({ project, ai = false, index }) {
                   tracking-[0.18em]
                   text-white/20
                   transition-colors
+                  duration-300
                   group-hover:text-purple-300/70
                 "
               >
@@ -199,9 +216,27 @@ function ProjectRow({ project, ai = false, index }) {
               </span>
             ))}
           </div>
+
+          {/* Mobile view details */}
+          <span
+            className="
+              mt-5
+              inline-flex
+              items-center
+              gap-2
+              text-[8px]
+              uppercase
+              tracking-[0.22em]
+              text-purple-400/70
+              lg:hidden
+            "
+          >
+            View Project
+            <span>↗</span>
+          </span>
         </div>
 
-        {/* arrow */}
+        {/* Arrow */}
         <div
           className="
             hidden
@@ -215,7 +250,9 @@ function ProjectRow({ project, ai = false, index }) {
             text-lg
             text-white/25
             transition-all
-            duration-400
+            duration-300
+            group-hover:-translate-y-1
+            group-hover:translate-x-1
             group-hover:rotate-45
             group-hover:border-purple-400/50
             group-hover:bg-purple-500
@@ -225,7 +262,7 @@ function ProjectRow({ project, ai = false, index }) {
         >
           ↗
         </div>
-      </div>
+      </Link>
     </motion.article>
   );
 }
@@ -246,7 +283,7 @@ export default function Projects() {
         lg:py-20
       "
     >
-      {/* background */}
+      {/* Background */}
       <div className="pointer-events-none absolute inset-0">
         <motion.div
           animate={{
@@ -272,7 +309,7 @@ export default function Projects() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-[1600px]">
-        {/* label */}
+        {/* Label */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -297,7 +334,7 @@ export default function Projects() {
           </span>
         </motion.div>
 
-        {/* heading */}
+        {/* Heading */}
         <div
           className="
             mb-16
@@ -326,6 +363,7 @@ export default function Projects() {
             "
           >
             Selected
+
             <span
               className="
                 block
@@ -360,7 +398,7 @@ export default function Projects() {
           </motion.p>
         </div>
 
-        {/* AI SECTION */}
+        {/* AI PROJECTS */}
         <div>
           <div
             className="
@@ -411,7 +449,7 @@ export default function Projects() {
 
           {aiProjects.map((project, index) => (
             <ProjectRow
-              key={project.title}
+              key={project.slug}
               project={project}
               ai
               index={index}
@@ -419,7 +457,7 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* divider */}
+        {/* Divider */}
         <div
           className="
             my-14
@@ -449,7 +487,7 @@ export default function Projects() {
           <div className="h-[1px] flex-1 bg-white/10" />
         </div>
 
-        {/* NON AI SECTION */}
+        {/* NON-AI PROJECTS */}
         <div>
           <div
             className="
@@ -500,7 +538,7 @@ export default function Projects() {
 
           {nonAiProjects.map((project, index) => (
             <ProjectRow
-              key={project.title}
+              key={project.slug}
               project={project}
               index={index}
             />

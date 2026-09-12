@@ -1,8 +1,10 @@
 "use client";
-
+import { useState } from "react";
 import { motion } from "framer-motion";
+import MenuOverlay from "@/components/MenuOverlay";
 
 export default function Hero() {
+    const [menuOpen, setMenuOpen] = useState(false);
   return (
     <section className="relative min-h-screen bg-black overflow-hidden flex flex-col justify-between px-5 sm:px-8 md:px-12 lg:px-16 py-6">
 
@@ -67,14 +69,47 @@ export default function Hero() {
           Tayyaba Sadaqat
         </div>
 
-        <button className="group flex items-center gap-3 text-xs sm:text-sm uppercase tracking-[0.22em]">
-          Menu
+        <button
+  onClick={() => setMenuOpen(true)}
+  className="
+    group
+    flex
+    items-center
+    gap-3
+    text-xs
+    uppercase
+    tracking-[0.22em]
+    sm:text-sm
+  "
+>
+  Menu
 
-          <span className="relative flex flex-col gap-1">
-            <span className="block w-7 h-[1px] bg-white transition-transform duration-300 group-hover:translate-x-1" />
-            <span className="block w-5 h-[1px] bg-white transition-transform duration-300 group-hover:-translate-x-1" />
-          </span>
-        </button>
+  <span className="relative flex flex-col gap-1">
+    <span
+      className="
+        block
+        h-[1px]
+        w-7
+        bg-white
+        transition-transform
+        duration-300
+        group-hover:translate-x-1
+      "
+    />
+
+    <span
+      className="
+        block
+        h-[1px]
+        w-5
+        bg-white
+        transition-transform
+        duration-300
+        group-hover:-translate-x-1
+      "
+    />
+  </span>
+</button>
       </motion.header>
 
       {/* Main hero content */}
@@ -197,6 +232,10 @@ export default function Hero() {
 
         </div>
       </motion.div>
+      <MenuOverlay
+  open={menuOpen}
+  onClose={() => setMenuOpen(false)}
+/>
     </section>
   );
 }
