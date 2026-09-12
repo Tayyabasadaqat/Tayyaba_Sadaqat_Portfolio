@@ -49,11 +49,7 @@ export default function PortfolioChatbot() {
     setLoading(true);
 
     try {
-      const apiUrl =
-        process.env.NEXT_PUBLIC_API_URL ||
-        "http://127.0.0.1:8000";
-
-      const response = await fetch(`${apiUrl}/api/chat`, {
+      const response = await fetch("/api/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -67,6 +63,13 @@ export default function PortfolioChatbot() {
       });
 
       if (!response.ok) {
+        const errorData = await response.json().catch(() => null);
+
+        console.error("Chat API error:", {
+          status: response.status,
+          data: errorData,
+        });
+
         throw new Error("Chat request failed");
       }
 
@@ -351,9 +354,7 @@ export default function PortfolioChatbot() {
               >
                 <input
                   value={input}
-                  onChange={(event) =>
-                    setInput(event.target.value)
-                  }
+                  onChange={(event) => setInput(event.target.value)}
                   placeholder="Ask about Tayyaba..."
                   disabled={loading}
                   className="
@@ -401,7 +402,7 @@ export default function PortfolioChatbot() {
       <motion.button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        aria-label="Open Tayyaba AI"
+        aria-label={open ? "Close Tayyaba AI" : "Open Tayyaba AI"}
         whileHover={{
           scale: 1.04,
         }}
@@ -446,7 +447,7 @@ export default function PortfolioChatbot() {
           ✦
         </motion.span>
 
-        <span>Ask Tayyaba AI</span>
+        <span>{open ? "Close AI" : "Ask Tayyaba AI"}</span>
       </motion.button>
     </>
   );
