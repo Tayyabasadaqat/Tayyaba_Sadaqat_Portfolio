@@ -62,7 +62,7 @@ export default function GoToTop() {
           className="
             group
             fixed
-            bottom-5
+            bottom-20
             right-5
             z-[900]
             flex
@@ -83,7 +83,7 @@ export default function GoToTop() {
             hover:bg-purple-500
             hover:text-white
             hover:shadow-[0_0_30px_rgba(124,58,237,0.25)]
-            sm:bottom-7
+            sm:bottom-25
             sm:right-7
           "
         >

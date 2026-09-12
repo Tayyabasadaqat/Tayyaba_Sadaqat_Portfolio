@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import CursorBackground from "@/components/CursorBackground";
+import PortfolioChatbot from "@/components/chatbot/PortfolioChatbot";
 
 import "./globals.css";
 import GoToTop from "@/components/GoToTop";
@@ -35,6 +36,7 @@ export default function RootLayout({
 
         <GoToTop />
         <CursorBackground />
+        <PortfolioChatbot />
       </body>
     </html>
   );
