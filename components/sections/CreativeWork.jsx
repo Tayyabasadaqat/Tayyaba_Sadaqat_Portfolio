@@ -23,7 +23,7 @@ const creativeItems = [
   {
     title: "Web Graphics",
     category: "Landing Pages · Funnels · Digital",
-    image: "/creative/web-graphics.jpg",
+    image: "/creative/web-graphics.png",
   },
 ];
 
