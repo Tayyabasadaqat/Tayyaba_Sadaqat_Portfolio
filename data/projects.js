@@ -42,10 +42,10 @@ export const projects = {
       "AI Integration",
     ],
 
-    image: "/public/creative/cover.png",
+    image: "/creative/cover.png",
 
-    live: "",
-    github: "",
+    live: "https://nishaan-sigma.vercel.app/",
+    github: "https://github.com/emaanfatima312005-wq/nishaan",
   },
 
   cotsle: {
@@ -83,10 +83,10 @@ export const projects = {
       "Responsive Design",
     ],
 
-    image: "/projects/cotsle/cover.jpg",
+    image: "/creative/cotsle-cover.png",
 
     live: "",
-    github: "",
+    github: "https://github.com/emaanfatima312005-wq/cotsle",
   },
 
   "luxe-by-ma": {
@@ -125,14 +125,180 @@ export const projects = {
       "Responsive Design",
     ],
 
-    image: "/projects/luxe-by-ma/cover.jpg",
+    image: "/creative/luxe-cover.png",
 
     live: "",
-    github: "",
+    github: "https://github.com/Tayyabasadaqat/luxe-by-ma-website",
+  },
+
+  "corvit-course-advisor": {
+    number: "04",
+    title: "Corvit Course Advisor",
+    category: "AI-Powered Course Guidance",
+    type: "AI Chatbot",
+    year: "2026",
+
+    hero:
+      "A personalized AI chatbot developed for Corvit to help users explore suitable courses through conversational guidance.",
+
+    role: "AI + Web Development",
+    status: "AI-Powered",
+
+    overview:
+      "Corvit Course Advisor is a personalized AI chatbot created to help users explore available courses and receive conversational guidance based on their interests and learning goals.",
+
+    challenge:
+      "Users can find it difficult to understand which course best matches their interests, background or career direction when browsing multiple training options.",
+
+    solution:
+      "The project uses an AI-powered chatbot experience to make course discovery more conversational, accessible and personalized.",
+
+    features: [
+      "Personalized Course Guidance",
+      "Conversational AI",
+      "Course-Related Question Answering",
+      "Interactive Recommendation Flow",
+    ],
+
+    tech: [
+      "JavaScript",
+      "AI Integration",
+      "Chatbot",
+    ],
+
+    image: "/creative/corvit-cover.png",
+
+    live: "https://corvit-ai-course-advisor.netlify.app/",
+    github: "https://github.com/Tayyabasadaqat/corvit-course-advisor",
+  },
+
+  "birds-classification-model": {
+    number: "05",
+    title: "Birds Classification Model",
+    category: "AI-Powered Image Classification",
+    type: "Deep Learning Project",
+    year: "2026",
+
+    hero:
+      "A CNN-based deep learning model designed to classify bird species from images.",
+
+    role: "Machine Learning Development",
+    status: "AI-Powered",
+
+    overview:
+      "The Birds Classification Model is a computer vision project that uses a Convolutional Neural Network to identify and classify bird species from image input.",
+
+    challenge:
+      "Bird species can have subtle visual differences, making image-based classification a suitable problem for deep learning and computer vision techniques.",
+
+    solution:
+      "The project uses a CNN-based classification approach to learn visual patterns from bird images and predict their corresponding classes.",
+
+    features: [
+      "Bird Image Classification",
+      "CNN-Based Architecture",
+      "Image Preprocessing",
+      "Deep Learning Predictions",
+    ],
+
+    tech: [
+      "Python",
+      "CNN",
+      "Deep Learning",
+      "Computer Vision",
+    ],
+
+    image: "/creative/bird-cover.png",
+
+    live: "https://birds-classification-model-cnn-model.streamlit.app/",
+    github: "https://github.com/Tayyabasadaqat/Birds-Classification-Model",
+  },
+
+  "protein-secondary-structure": {
+    number: "06",
+    title: "Protein Secondary Structure",
+    category: "AI-Powered Prediction Dashboard",
+    type: "Machine Learning Project",
+    year: "2026",
+
+    hero:
+      "A Streamlit-based dashboard designed to predict protein secondary structure.",
+
+    role: "Machine Learning Development",
+    status: "AI-Powered",
+
+    overview:
+      "Protein Secondary Structure is a machine learning project presented through an interactive Streamlit dashboard for predicting protein secondary structure.",
+
+    challenge:
+      "Protein structure prediction involves interpreting biological sequence information and presenting prediction results in a way that is easy to explore.",
+
+    solution:
+      "The project combines a prediction workflow with a Streamlit interface so users can provide protein-related input and view the resulting secondary structure predictions.",
+
+    features: [
+      "Protein Structure Prediction",
+      "Interactive Streamlit Dashboard",
+      "Sequence Input",
+      "Prediction Result Display",
+    ],
+
+    tech: [
+      "Python",
+      "Streamlit",
+      "Machine Learning",
+      "Jupyter Notebook",
+    ],
+
+    image: "/creative/protein-cover.png",
+
+    live: "https://proteinsecondarystructure-prediction.streamlit.app/",
+    github: "https://github.com/Tayyabasadaqat/ProteinSecondaryStructure",
+  },
+
+  "project-doctor": {
+  number: "07",
+  title: "Project Doctor",
+  category: "AI-Powered Project Analysis",
+  type: "AI Analysis Tool",
+  year: "2026",
+
+  hero:
+    "A Streamlit-based AI project analyzer designed to evaluate and analyze software projects.",
+
+  role: "AI + Python Development",
+  status: "AI-Powered",
+
+  overview:
+    "Project Doctor is a Streamlit-based AI project analyzer created to help examine software projects through an interactive AI-powered interface.",
+
+  challenge:
+    "Understanding the structure, quality and overall state of a software project can require manually reviewing multiple files, technologies and implementation details.",
+
+  solution:
+    "The project combines AI-powered analysis with a Streamlit interface to make project evaluation more interactive and accessible.",
+
+  features: [
+    "AI-Powered Project Analysis",
+    "Interactive Streamlit Interface",
+    "Project Evaluation",
+    "Automated Analysis Workflow",
+  ],
+
+  tech: [
+    "Python",
+    "Streamlit",
+    "AI Integration",
+  ],
+
+  image: "/creative/project-doctor-cover.png",
+
+  live: "https://projectdoctor-aianalyzer.streamlit.app/",
+  github: "https://github.com/Tayyabasadaqat/Project_doctor",
   },
 
   "signature-trips": {
-    number: "04",
+    number: "07",
     title: "Signature Trips",
     category: "Travel Website",
     type: "Website",
@@ -167,14 +333,14 @@ export const projects = {
       "Responsive Design",
     ],
 
-    image: "/projects/signature-trips/cover.jpg",
+    image: "/creative/signature-cover.png",
 
     live: "https://thesignaturetrips.com/",
     github: "",
   },
 
   "time-bank": {
-    number: "05",
+    number: "08",
     title: "Time Bank",
     category: "Skill Exchange Platform",
     type: "Software Platform",
@@ -211,14 +377,14 @@ export const projects = {
       "Postman",
     ],
 
-    image: "/projects/time-bank/cover.jpg",
+    image: "/creative/time-bank-cover.png",
 
-    live: "",
+    live: "https://time-bank-omega.vercel.app/",
     github: "",
   },
 
   "donation-tracker": {
-    number: "06",
+    number: "09",
     title: "Donation Tracker",
     category: "Blockchain System",
     type: "Python Project",
@@ -248,53 +414,9 @@ export const projects = {
 
     tech: ["Python", "Blockchain", "Security"],
 
-    image: "/projects/donation-tracker/cover.jpg",
+    image: "/creative/donation-cover.png",
 
-    live: "",
-    github: "",
-  },
-
-  "lost-found": {
-    number: "07",
-    title: "Lost & Found",
-    category: "Management System",
-    type: "Desktop Application",
-    year: "2026",
-
-    hero:
-      "A desktop-based management system for organizing lost and recovered items.",
-
-    role: "Java Development",
-    status: "Non-AI",
-
-    overview:
-      "The Lost & Found Management System was developed to simplify the process of recording, searching and managing lost and recovered items.",
-
-    challenge:
-      "Managing lost-item records manually can become disorganized and difficult to search.",
-
-    solution:
-      "The system provides a structured desktop interface connected to a database for managing item records.",
-
-    features: [
-      "Lost Item Records",
-      "Found Item Records",
-      "Database Storage",
-      "Item Search",
-      "Desktop Interface",
-    ],
-
-    tech: [
-      "Java",
-      "Java Swing",
-      "MySQL",
-      "phpMyAdmin",
-      "XAMPP",
-    ],
-
-    image: "/projects/lost-found/cover.jpg",
-
-    live: "",
-    github: "",
+    live: "https://blockchaindonationsystem.netlify.app/",
+    github: "https://github.com/Tayyabasadaqat/Blockchain-Donation-System",
   },
 };

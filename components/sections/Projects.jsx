@@ -31,11 +31,47 @@ const aiProjects = [
       "A polished digital experience combining modern interface design with AI-powered functionality.",
     tech: ["Web Development", "AI Integration", "UI/UX"],
   },
+  {
+    number: "04",
+    title: "Corvit Course Advisor",
+    slug: "corvit-course-advisor",
+    category: "AI Course Advisor",
+    description:
+      "A personalized AI chatbot developed for Corvit to help users explore suitable courses through conversational guidance.",
+    tech: ["JavaScript", "AI Integration", "Chatbot"],
+  },
+  {
+    number: "05",
+    title: "Birds Classification Model",
+    slug: "birds-classification-model",
+    category: "AI Image Classification",
+    description:
+      "A CNN-based deep learning model designed to classify bird species from image input.",
+    tech: ["Python", "CNN", "Deep Learning", "Computer Vision"],
+  },
+  {
+    number: "06",
+    title: "Protein Secondary Structure",
+    slug: "protein-secondary-structure",
+    category: "AI Prediction Dashboard",
+    description:
+      "A Streamlit-based machine learning dashboard for predicting protein secondary structure.",
+    tech: ["Python", "Streamlit", "Machine Learning"],
+  },
+  {
+    number: "07",
+    title: "Project Doctor",
+    slug: "project-doctor",
+    category: "AI Project Analyzer",
+    description:
+      "A Streamlit-based AI project analyzer designed to evaluate and analyze software projects.",
+    tech: ["Python", "Streamlit", "AI Integration"],
+  },
 ];
 
 const nonAiProjects = [
   {
-    number: "01",
+    number: "08",
     title: "Signature Trips",
     slug: "signature-trips",
     category: "Travel Website",
@@ -44,7 +80,7 @@ const nonAiProjects = [
     tech: ["WordPress", "UI/UX", "Web Design"],
   },
   {
-    number: "02",
+    number: "09",
     title: "Time Bank",
     slug: "time-bank",
     category: "Skill Exchange Platform",
@@ -53,22 +89,13 @@ const nonAiProjects = [
     tech: ["React", "Express.js", "MongoDB", "SQL"],
   },
   {
-    number: "03",
+    number: "10",
     title: "Donation Tracker",
     slug: "donation-tracker",
     category: "Blockchain System",
     description:
       "A blockchain-based donation tracking system focused on transparency and immutability.",
     tech: ["Python", "Blockchain", "Security"],
-  },
-  {
-    number: "04",
-    title: "Lost & Found",
-    slug: "lost-found",
-    category: "Management System",
-    description:
-      "A desktop system for managing and tracking lost and recovered items.",
-    tech: ["Java", "Java Swing", "MySQL"],
   },
 ];
 
@@ -443,7 +470,7 @@ export default function Projects() {
                 text-purple-500/10
               "
             >
-              03
+              {String(aiProjects.length).padStart(2, "0")}
             </span>
           </div>
 
@@ -532,7 +559,7 @@ export default function Projects() {
                 text-white/[0.04]
               "
             >
-              04
+              {String(nonAiProjects.length).padStart(2, "0")}
             </span>
           </div>
 
