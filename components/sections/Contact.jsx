@@ -39,9 +39,13 @@ ${formData.message}
 
     const body = buildMessage();
 
-    window.location.href = `mailto:arishtayb818@gmail.com?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
+    const gmailUrl =
+      `https://mail.google.com/mail/?view=cm&fs=1` +
+      `&to=${encodeURIComponent("arishtayb818@gmail.com")}` +
+      `&su=${encodeURIComponent(subject)}` +
+      `&body=${encodeURIComponent(body)}`;
+
+    window.open(gmailUrl, "_blank", "noopener,noreferrer");
   };
 
   const handleWhatsApp = () => {
@@ -49,10 +53,11 @@ ${formData.message}
 
     const phoneNumber = "923195679214";
 
-    window.open(
-      `https://wa.me/${phoneNumber}?text=${encodeURIComponent(body)}`,
-      "_blank"
-    );
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      body
+    )}`;
+
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -120,7 +125,7 @@ ${formData.message}
           "
         >
           <span className="text-purple-400">
-            08 — Contact
+            09 — Contact
           </span>
 
           <span className="hidden text-white/20 sm:block">
@@ -246,13 +251,15 @@ ${formData.message}
                 text-white/35
               "
             >
-              Fill in the form and send it through email or WhatsApp.
+              Fill in the form and send it through Gmail or WhatsApp.
             </p>
 
             {/* Quick links */}
             <div className="mt-10 border-t border-white/10">
               <a
-                href="mailto:arishtayb818@gmail.com"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=arishtayb818%40gmail.com"
+                target="_blank"
+                rel="noreferrer"
                 className="
                   group
                   flex
@@ -575,7 +582,7 @@ ${formData.message}
                   hover:bg-purple-500
                 "
               >
-                Send Email
+                Open Gmail
 
                 <span
                   className="
@@ -639,7 +646,7 @@ ${formData.message}
                 text-white/20
               "
             >
-              Choose email or WhatsApp after filling the form.
+              Fill in the form, then choose Gmail or WhatsApp.
             </p>
           </motion.form>
         </div>

@@ -191,7 +191,7 @@ export default function Experience() {
           "
         >
           <span className="text-purple-400">
-            05 — Experience
+            06 — Experience
           </span>
 
           <span className="hidden text-white/20 sm:block">

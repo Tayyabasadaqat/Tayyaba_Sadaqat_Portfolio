@@ -353,7 +353,7 @@ export default function Projects() {
           "
         >
           <span className="text-purple-400">
-            04 — Projects
+            05 — Projects
           </span>
 
           <span className="hidden text-white/20 sm:block">

@@ -139,7 +139,7 @@ export default function Skills() {
           "
         >
           <span className="text-purple-400">
-            06 — Skills & Tools
+            07 — Skills & Tools
           </span>
 
           <span className="hidden text-white/20 sm:block">

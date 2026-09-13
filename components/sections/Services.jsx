@@ -110,7 +110,7 @@ export default function Services() {
               sm:text-xs
             "
           >
-            03 — Services
+            04 — Services
           </p>
 
           <p

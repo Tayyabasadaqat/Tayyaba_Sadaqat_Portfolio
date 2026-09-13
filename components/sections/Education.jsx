@@ -21,20 +21,12 @@ const education = [
     description:
       "Professional training focused on visual communication, graphic design, creative content and video editing.",
   },
+  
   {
     number: "03",
     type: "Upcoming",
-    title: "Advanced AI",
-    institution: "Huawei",
-    status: "Upcoming",
-    description:
-      "Upcoming advanced learning focused on artificial intelligence and emerging AI technologies.",
-  },
-  {
-    number: "04",
-    type: "Upcoming",
     title: "Advanced AI & Technology",
-    institution: "Microsoft",
+    institution: "Microsoft, Huawei",
     status: "Upcoming",
     description:
       "Upcoming professional learning focused on advanced AI concepts and modern technology.",
@@ -103,7 +95,7 @@ export default function Education() {
           "
         >
           <span className="text-purple-400">
-            02 — Education
+            03 — Education
           </span>
 
           <span className="hidden text-white/20 sm:block">

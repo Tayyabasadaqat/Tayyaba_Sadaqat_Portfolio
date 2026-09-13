@@ -84,7 +84,7 @@ export default function CreativeWork() {
                 sm:text-xs
               "
             >
-              07 — Creative Work
+              08 — Creative Work
             </p>
 
             <p
