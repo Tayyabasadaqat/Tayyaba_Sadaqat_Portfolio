@@ -13,7 +13,7 @@ const creativeItems = [
   {
     title: "Branding",
     category: "Identity · Visual Systems · Logos",
-    image: "/creative/branding.jpg",
+    image: "/creative/Branding.jpg",
   },
   {
     title: "E-Commerce",
