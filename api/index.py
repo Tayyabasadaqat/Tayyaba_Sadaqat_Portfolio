@@ -185,7 +185,7 @@ def contact(request: ContactRequest):
 
         params: resend.Emails.SendParams = {
             "from": "Tayyaba Portfolio <onboarding@resend.dev>",
-            "to": ["arishtayb818@gmail.com"],
+            "to": ["taybz1310@gmail.com"],
             "subject": f"Portfolio: {request.subject.strip()}",
             "html": email_html,
             "reply_to": str(request.email),
