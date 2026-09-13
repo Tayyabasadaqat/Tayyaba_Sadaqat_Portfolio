@@ -1,11 +1,9 @@
 from typing import List, Literal
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 from pydantic import BaseModel
 
-from api.services.ai_service import generate_portfolio_response
-
-app = FastAPI(title="Tayyaba Portfolio API")
+app = FastAPI()
 
 
 class ChatMessage(BaseModel):
@@ -17,34 +15,15 @@ class ChatRequest(BaseModel):
     messages: List[ChatMessage]
 
 
-class ChatResponse(BaseModel):
-    reply: str
-
-
 @app.get("/api")
-def root():
-    return {"message": "Tayyaba Portfolio API is running"}
+def home():
+    return {
+        "message": "Tayyaba Portfolio API is running"
+    }
 
 
-@app.post("/api/chat", response_model=ChatResponse)
-def portfolio_chat(request: ChatRequest):
-    try:
-        messages = [
-            {
-                "role": message.role,
-                "content": message.content,
-            }
-            for message in request.messages
-        ]
-
-        reply = generate_portfolio_response(messages)
-
-        return {"reply": reply}
-
-    except Exception as error:
-        print("CHAT ERROR:", str(error))
-
-        raise HTTPException(
-            status_code=500,
-            detail="Unable to generate chat response.",
-        )
+@app.post("/api/chat")
+def chat(request: ChatRequest):
+    return {
+        "reply": f"TEST SUCCESS: You sent {request.messages[-1].content}"
+    }
