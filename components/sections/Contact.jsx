@@ -11,11 +11,24 @@ export default function Contact() {
     message: "",
   });
 
+  const [isSending, setIsSending] = useState(false);
+  const [status, setStatus] = useState({
+    type: "",
+    message: "",
+  });
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
+
+    if (status.message) {
+      setStatus({
+        type: "",
+        message: "",
+      });
+    }
   };
 
   const buildMessage = () => {
@@ -31,21 +44,55 @@ ${formData.message}
     `.trim();
   };
 
-  const handleEmail = (e) => {
+  const handleEmail = async (e) => {
     e.preventDefault();
 
-    const subject =
-      formData.subject || `Portfolio inquiry from ${formData.name}`;
+    setIsSending(true);
 
-    const body = buildMessage();
+    setStatus({
+      type: "",
+      message: "",
+    });
 
-    const gmailUrl =
-      `https://mail.google.com/mail/?view=cm&fs=1` +
-      `&to=${encodeURIComponent("arishtayb818@gmail.com")}` +
-      `&su=${encodeURIComponent(subject)}` +
-      `&body=${encodeURIComponent(body)}`;
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    window.open(gmailUrl, "_blank", "noopener,noreferrer");
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          data.detail || "Unable to send your message."
+        );
+      }
+
+      setStatus({
+        type: "success",
+        message: "Message sent successfully. I’ll get back to you soon.",
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("CONTACT ERROR:", error);
+
+      setStatus({
+        type: "error",
+        message:
+          "Something went wrong. Please try again or contact me through WhatsApp.",
+      });
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const handleWhatsApp = () => {
@@ -57,7 +104,11 @@ ${formData.message}
       body
     )}`;
 
-    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    window.open(
+      whatsappUrl,
+      "_blank",
+      "noopener,noreferrer"
+    );
   };
 
   return (
@@ -162,6 +213,7 @@ ${formData.message}
             "
           >
             Let&apos;s make
+
             <span
               className="
                 block
@@ -192,8 +244,8 @@ ${formData.message}
             "
           >
             Have a website, software project, AI idea, design requirement or
-            collaboration in mind? Send me a message and choose how you would
-            like to reach me.
+            collaboration in mind? Send me a message and I&apos;ll get back to
+            you.
           </motion.p>
         </div>
 
@@ -251,15 +303,14 @@ ${formData.message}
                 text-white/35
               "
             >
-              Fill in the form and send it through Gmail or WhatsApp.
+              Send your message directly through the form or contact me on
+              WhatsApp.
             </p>
 
             {/* Quick links */}
             <div className="mt-10 border-t border-white/10">
               <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=arishtayb818%40gmail.com"
-                target="_blank"
-                rel="noreferrer"
+                href="mailto:arishtayb818@gmail.com"
                 className="
                   group
                   flex
@@ -551,6 +602,27 @@ ${formData.message}
               />
             </div>
 
+            {/* Status */}
+            {status.message && (
+              <div
+                className={`
+                  mt-6
+                  border
+                  px-4
+                  py-3
+                  text-xs
+                  leading-relaxed
+                  ${
+                    status.type === "success"
+                      ? "border-emerald-500/20 bg-emerald-500/10 text-emerald-300"
+                      : "border-red-500/20 bg-red-500/10 text-red-300"
+                  }
+                `}
+              >
+                {status.message}
+              </div>
+            )}
+
             {/* Buttons */}
             <div
               className="
@@ -563,6 +635,7 @@ ${formData.message}
             >
               <button
                 type="submit"
+                disabled={isSending}
                 className="
                   group
                   flex
@@ -580,9 +653,11 @@ ${formData.message}
                   transition-all
                   duration-300
                   hover:bg-purple-500
+                  disabled:cursor-not-allowed
+                  disabled:opacity-50
                 "
               >
-                Open Gmail
+                {isSending ? "Sending..." : "Send Message"}
 
                 <span
                   className="
@@ -646,7 +721,7 @@ ${formData.message}
                 text-white/20
               "
             >
-              Fill in the form, then choose Gmail or WhatsApp.
+              Your message will be sent directly to my inbox.
             </p>
           </motion.form>
         </div>
