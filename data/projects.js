@@ -42,7 +42,7 @@ export const projects = {
       "AI Integration",
     ],
 
-    image: "/projects/nishaan/cover.jpg",
+    image: "/public/creative/cover.png",
 
     live: "",
     github: "",
