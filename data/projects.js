@@ -83,7 +83,7 @@ export const projects = {
       "Responsive Design",
     ],
 
-    image: "/creative/cotsle-cover(1).png",
+    image: "/creative/cover2.png",
 
     live: "",
     github: "https://github.com/emaanfatima312005-wq/cotsle",
