@@ -5,7 +5,22 @@ import { motion } from "framer-motion";
 
 export default function AboutRevealC() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-black px-5 py-24 sm:px-8 md:px-12 lg:px-16">
+    <section
+      id="about"
+      aria-labelledby="about-heading"
+      className="
+        relative
+        min-h-screen
+        overflow-hidden
+        bg-black
+        px-5
+        py-24
+        sm:px-8
+        md:px-12
+        lg:px-16
+      "
+    >
+      {/* Background glow */}
       <div
         className="
           pointer-events-none
@@ -21,13 +36,39 @@ export default function AboutRevealC() {
       />
 
       <div className="relative z-10 mx-auto max-w-[1500px]">
-        <div className="mb-16 flex items-center justify-between text-[10px] uppercase tracking-[0.35em] text-white/30 sm:text-xs">
+
+        {/* Section label */}
+        <div
+          className="
+            mb-16
+            flex
+            items-center
+            justify-between
+            text-[10px]
+            uppercase
+            tracking-[0.35em]
+            text-white/40
+            sm:text-xs
+          "
+        >
           <span>02 — About Me</span>
-          <span>Based in ideas, built with code</span>
+
+          <span className="hidden sm:inline">
+            Based in ideas, built with code
+          </span>
         </div>
 
-        <div className="grid min-h-[720px] items-center gap-14 lg:grid-cols-[0.75fr_1.25fr] lg:gap-24">
-          {/* Image */}
+        <div
+          className="
+            grid
+            min-h-[720px]
+            items-center
+            gap-14
+            lg:grid-cols-[0.75fr_1.25fr]
+            lg:gap-24
+          "
+        >
+          {/* Portrait */}
           <motion.div
             initial={{ opacity: 0, x: -70 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -36,7 +77,13 @@ export default function AboutRevealC() {
               duration: 1,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="relative mx-auto w-full max-w-[300px] lg:max-w-[340px]"
+            className="
+              relative
+              mx-auto
+              w-full
+              max-w-[300px]
+              lg:max-w-[340px]
+            "
           >
             <div
               className="
@@ -53,9 +100,9 @@ export default function AboutRevealC() {
             <div className="relative aspect-[4/5] overflow-hidden">
               <Image
                 src="/images/tayyabaportrait.jpeg"
-                alt="Tayyaba Sadaqat"
+                alt="Portrait of Tayyaba Sadaqat, software engineer and AI web developer"
                 fill
-                sizes="340px"
+                sizes="(max-width: 1024px) 300px, 340px"
                 className="object-cover object-top"
               />
 
@@ -73,6 +120,7 @@ export default function AboutRevealC() {
             </div>
 
             <div
+              aria-hidden="true"
               className="
                 absolute
                 -bottom-5
@@ -94,12 +142,19 @@ export default function AboutRevealC() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mb-6 text-xs uppercase tracking-[0.4em] text-purple-400"
+              className="
+                mb-6
+                text-xs
+                uppercase
+                tracking-[0.4em]
+                text-purple-400
+              "
             >
               Who I am
             </motion.p>
 
             <motion.h2
+              id="about-heading"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -118,13 +173,16 @@ export default function AboutRevealC() {
                 lg:text-[5.5vw]
               "
             >
-              I like building
+              I build digital
+              
               <span className="block text-purple-500">
-                things that work
+                experiences
               </span>
-              and look good.
+
+              that work.
             </motion.h2>
 
+            {/* About copy */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -136,20 +194,23 @@ export default function AboutRevealC() {
                 gap-6
                 text-sm
                 leading-relaxed
-                text-white/40
+                text-white/60
                 sm:text-base
                 md:grid-cols-2
               "
             >
               <p>
-                I’m a software engineering student focused on web development,
-                artificial intelligence and modern digital products.
+                I&apos;m Tayyaba Sadaqat, a Software Engineering student
+                focused on AI and web development. I build responsive web
+                applications and AI-powered digital products using
+                technologies including React, Next.js, Python and FastAPI.
               </p>
 
               <p>
-                My creative background helps me think beyond functionality —
-                paying attention to how an experience looks, feels and
-                communicates.
+                My background in graphic design, video editing and UI/UX
+                helps me approach development from both technical and
+                creative perspectives, building experiences that are
+                functional, intuitive and visually considered.
               </p>
             </motion.div>
 
@@ -157,7 +218,10 @@ export default function AboutRevealC() {
               initial={{ opacity: 0, scaleX: 0 }}
               whileInView={{ opacity: 1, scaleX: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.35 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.35,
+              }}
               className="
                 mt-12
                 h-px

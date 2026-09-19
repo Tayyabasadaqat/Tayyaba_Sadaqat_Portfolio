@@ -29,7 +29,7 @@ const skillGroups = [
     skills: [
       "Machine Learning",
       "Deep Learning",
-      "NLP",
+      "Natural Language Processing (NLP)",
       "Data Analysis",
       "Model Training",
       "AI Integration",
@@ -79,6 +79,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
+      aria-labelledby="skills-heading"
       className="
         relative
         overflow-hidden
@@ -91,8 +92,11 @@ export default function Skills() {
         lg:py-20
       "
     >
-      {/* Background glow */}
-      <div className="pointer-events-none absolute inset-0">
+      {/* Decorative background */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+      >
         <div
           className="
             absolute
@@ -108,9 +112,9 @@ export default function Skills() {
 
         <div
           className="
+            absolute
             bottom-[-200px]
             left-[-180px]
-            absolute
             h-[500px]
             w-[500px]
             rounded-full
@@ -142,7 +146,7 @@ export default function Skills() {
             07 — Skills & Tools
           </span>
 
-          <span className="hidden text-white/20 sm:block">
+          <span className="hidden text-white/40 sm:block">
             Development / AI / Design
           </span>
         </motion.div>
@@ -158,6 +162,7 @@ export default function Skills() {
           "
         >
           <motion.h2
+            id="skills-heading"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -176,6 +181,7 @@ export default function Skills() {
             "
           >
             Tools I
+
             <span
               className="
                 block
@@ -200,20 +206,21 @@ export default function Skills() {
               max-w-md
               text-sm
               leading-relaxed
-              text-white/35
+              text-white/60
               sm:text-base
               lg:justify-self-end
             "
           >
-            My toolkit spans software development, AI, databases, interface
-            design and visual content creation.
+            My technical and creative toolkit includes web development,
+            software engineering, artificial intelligence, machine learning,
+            databases, UI/UX design and visual content creation.
           </motion.p>
         </div>
 
         {/* Skill groups */}
         <div className="border-t border-white/10">
           {skillGroups.map((group, index) => (
-            <motion.div
+            <motion.article
               key={group.title}
               initial={{
                 opacity: 0,
@@ -243,9 +250,11 @@ export default function Skills() {
                 lg:py-10
               "
             >
-              {/* Hover wash */}
+              {/* Decorative hover wash */}
               <div
+                aria-hidden="true"
                 className="
+                  pointer-events-none
                   absolute
                   inset-0
                   origin-left
@@ -272,10 +281,11 @@ export default function Skills() {
               >
                 {/* Number */}
                 <span
+                  aria-hidden="true"
                   className="
                     text-xs
                     tracking-[0.3em]
-                    text-white/20
+                    text-white/40
                     transition-colors
                     duration-300
                     group-hover:text-purple-400
@@ -284,7 +294,7 @@ export default function Skills() {
                   {group.number}
                 </span>
 
-                {/* Title */}
+                {/* Group title */}
                 <div>
                   <p
                     className="
@@ -292,7 +302,7 @@ export default function Skills() {
                       text-[9px]
                       uppercase
                       tracking-[0.3em]
-                      text-purple-400/70
+                      text-purple-300
                     "
                   >
                     {group.subtitle}
@@ -303,7 +313,7 @@ export default function Skills() {
                       text-3xl
                       font-semibold
                       tracking-[-0.04em]
-                      text-white/85
+                      text-white/90
                       transition-all
                       duration-300
                       group-hover:translate-x-2
@@ -317,7 +327,10 @@ export default function Skills() {
                 </div>
 
                 {/* Skills */}
-                <div className="flex flex-wrap gap-2 sm:gap-3">
+                <div
+                  className="flex flex-wrap gap-2 sm:gap-3"
+                  aria-label={`${group.title} skills`}
+                >
                   {group.skills.map((skill) => (
                     <motion.span
                       key={skill}
@@ -332,14 +345,14 @@ export default function Skills() {
                         cursor-default
                         rounded-full
                         border
-                        border-white/10
-                        bg-white/[0.015]
+                        border-white/15
+                        bg-white/[0.025]
                         px-4
                         py-2
                         text-[9px]
                         uppercase
                         tracking-[0.17em]
-                        text-white/35
+                        text-white/60
                         transition-colors
                         duration-300
                         hover:border-purple-500/40
@@ -354,8 +367,9 @@ export default function Skills() {
                 </div>
               </div>
 
-              {/* Ghost number */}
+              {/* Decorative ghost number */}
               <span
+                aria-hidden="true"
                 className="
                   pointer-events-none
                   absolute
@@ -372,7 +386,7 @@ export default function Skills() {
               >
                 {group.number}
               </span>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>

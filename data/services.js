@@ -3,20 +3,23 @@ export const services = {
     number: "01",
     title: "Web Development",
     shortTitle: "Web",
+
     subtitle:
-      "Modern, responsive and scalable websites built around strong user experience.",
+      "Modern, responsive websites and web applications built for performance, usability and scalable growth.",
+
     intro:
-      "I design and build digital experiences that balance visual polish, usability and technical structure.",
+      "I design and develop responsive websites and web applications using modern frontend and backend technologies, with a focus on clean interfaces, reliable functionality and user-friendly experiences.",
 
     capabilities: [
       "Responsive Website Development",
-      "Landing Pages",
+      "Full-Stack Web Development",
+      "Landing Page Development",
       "Business Websites",
       "Portfolio Websites",
       "API Integration",
       "Database Integration",
       "Performance Optimization",
-      "Responsive UI Implementation",
+      "Mobile-Responsive Development",
     ],
 
     process: [
@@ -24,25 +27,25 @@ export const services = {
         number: "01",
         title: "Understand",
         description:
-          "I start by understanding the idea, audience, requirements and the main purpose of the website.",
+          "I start by understanding the project goals, target audience, required functionality and overall purpose of the website.",
       },
       {
         number: "02",
         title: "Structure",
         description:
-          "I organize content, user flow and page structure before moving into implementation.",
+          "I organize the content, user flow, page structure and technical requirements before development begins.",
       },
       {
         number: "03",
         title: "Build",
         description:
-          "The interface is developed with responsiveness, usability and maintainable structure in mind.",
+          "I develop the website with responsive layouts, clean components and maintainable frontend and backend structure.",
       },
       {
         number: "04",
         title: "Refine",
         description:
-          "I test interactions, improve responsiveness and polish the final visual experience.",
+          "I test functionality, responsiveness and interactions across screen sizes before refining the final user experience.",
       },
     ],
 
@@ -68,18 +71,21 @@ export const services = {
     number: "02",
     title: "AI Integration",
     shortTitle: "AI",
+
     subtitle:
-      "Adding intelligent features and AI-powered interactions to digital products.",
+      "AI-powered features, assistants and intelligent workflows integrated into websites and applications.",
+
     intro:
-      "I integrate AI into websites and applications to create smarter workflows, assistants and user experiences.",
+      "I integrate artificial intelligence into web applications to create conversational assistants, intelligent workflows, AI-powered features and more useful digital experiences.",
 
     capabilities: [
       "AI-Powered Web Features",
-      "AI Assistants",
-      "Chat Interfaces",
+      "AI Assistants & Chatbots",
+      "Conversational Interfaces",
       "LLM API Integration",
       "Prompt-Based Workflows",
       "AI Search Experiences",
+      "Natural Language Processing",
       "Text Processing",
       "Intelligent Automation",
     ],
@@ -89,25 +95,25 @@ export const services = {
         number: "01",
         title: "Identify",
         description:
-          "First I determine where AI actually improves the experience instead of adding it without purpose.",
+          "I identify where AI can solve a meaningful problem or improve the user experience rather than adding intelligence without a clear purpose.",
       },
       {
         number: "02",
         title: "Design",
         description:
-          "The interaction flow is designed around the user, including prompts, responses and edge cases.",
+          "I design the AI interaction flow around user needs, including prompts, responses, feedback and possible edge cases.",
       },
       {
         number: "03",
         title: "Integrate",
         description:
-          "AI APIs and backend services are connected securely to the frontend experience.",
+          "I connect AI APIs and backend services with the application while keeping the frontend interaction simple and intuitive.",
       },
       {
         number: "04",
         title: "Improve",
         description:
-          "Responses and workflows are refined for clarity, consistency and better usability.",
+          "I refine prompts, responses and interaction flows to improve clarity, consistency and overall usability.",
       },
     ],
 
@@ -129,18 +135,20 @@ export const services = {
     number: "03",
     title: "Frontend Development",
     shortTitle: "Frontend",
+
     subtitle:
-      "Interactive interfaces with responsive layouts, motion and thoughtful usability.",
+      "Responsive React and Next.js interfaces with thoughtful interactions, animation and modern UI development.",
+
     intro:
-      "I turn concepts and designs into modern frontend experiences that feel polished across desktop and mobile.",
+      "I transform designs and ideas into responsive frontend experiences using React and Next.js, with attention to usability, performance, mobile optimization and polished interaction design.",
 
     capabilities: [
-      "Responsive Interfaces",
+      "Responsive Frontend Development",
       "React Development",
       "Next.js Development",
-      "Interactive UI",
-      "Motion & Microinteractions",
-      "Reusable Components",
+      "Interactive User Interfaces",
+      "UI Animation & Microinteractions",
+      "Reusable React Components",
       "Mobile Optimization",
       "Frontend API Integration",
     ],
@@ -150,25 +158,25 @@ export const services = {
         number: "01",
         title: "Translate",
         description:
-          "Visual requirements and ideas are translated into a reusable frontend structure.",
+          "I translate designs, concepts and project requirements into a clear and reusable frontend component structure.",
       },
       {
         number: "02",
         title: "Develop",
         description:
-          "Components and layouts are built with clean responsive behavior across screen sizes.",
+          "I build responsive components and layouts that adapt consistently across desktop, tablet and mobile devices.",
       },
       {
         number: "03",
         title: "Animate",
         description:
-          "Motion is added where it improves hierarchy, feedback and the overall experience.",
+          "I add purposeful motion and microinteractions where they improve feedback, visual hierarchy and user experience.",
       },
       {
         number: "04",
         title: "Polish",
         description:
-          "Spacing, responsiveness and interaction details are refined before completion.",
+          "I refine responsiveness, spacing, accessibility and interaction details to create a consistent final interface.",
       },
     ],
 
@@ -190,20 +198,23 @@ export const services = {
     number: "04",
     title: "Creative Design",
     shortTitle: "Design",
+
     subtitle:
-      "Visual communication for brands, digital platforms and social audiences.",
+      "Graphic design, social media content, branding and visual communication for digital platforms.",
+
     intro:
-      "My design work combines brand consistency with engaging visual communication across digital content.",
+      "I create visual content for brands and digital platforms, combining graphic design, social media content, video editing and web graphics with consistent visual communication.",
 
     capabilities: [
       "Social Media Design",
       "Brand Content",
       "Marketing Visuals",
-      "Post & Campaign Design",
+      "Social Media Campaign Design",
       "Video Editing",
-      "Reels",
+      "Reels & Short-Form Content",
       "Web Graphics",
       "E-Commerce Content",
+      "Amazon A+ Content",
       "Event Graphics",
     ],
 
@@ -212,25 +223,25 @@ export const services = {
         number: "01",
         title: "Direction",
         description:
-          "I identify the brand, audience, platform and visual direction needed for the content.",
+          "I begin by understanding the brand, audience, platform and communication goal to establish a clear visual direction.",
       },
       {
         number: "02",
         title: "Concept",
         description:
-          "Ideas, layouts and visual hierarchy are developed around the communication goal.",
+          "I develop concepts, layouts and visual hierarchy around the message the content needs to communicate.",
       },
       {
         number: "03",
         title: "Create",
         description:
-          "The final visual assets are produced with attention to consistency and platform requirements.",
+          "I produce the visual assets with attention to brand consistency, composition and the requirements of each digital platform.",
       },
       {
         number: "04",
         title: "Adapt",
         description:
-          "Designs are refined and adapted for different formats, campaigns or digital channels.",
+          "I refine and adapt the designs for different formats, campaigns, screen sizes and digital channels.",
       },
     ],
 

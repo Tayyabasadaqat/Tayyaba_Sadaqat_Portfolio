@@ -12,6 +12,7 @@ export default function Contact() {
   });
 
   const [isSending, setIsSending] = useState(false);
+
   const [status, setStatus] = useState({
     type: "",
     message: "",
@@ -97,7 +98,6 @@ ${formData.message}
 
   const handleWhatsApp = () => {
     const body = buildMessage();
-
     const phoneNumber = "923195679214";
 
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
@@ -114,6 +114,7 @@ ${formData.message}
   return (
     <section
       id="contact"
+      aria-labelledby="contact-heading"
       className="
         relative
         overflow-hidden
@@ -127,7 +128,10 @@ ${formData.message}
       "
     >
       {/* Background */}
-      <div className="pointer-events-none absolute inset-0">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+      >
         <div
           className="
             absolute
@@ -179,7 +183,7 @@ ${formData.message}
             09 — Contact
           </span>
 
-          <span className="hidden text-white/20 sm:block">
+          <span className="hidden text-white/40 sm:block">
             Have something in mind?
           </span>
         </motion.div>
@@ -195,6 +199,7 @@ ${formData.message}
           "
         >
           <motion.h2
+            id="contact-heading"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -238,14 +243,14 @@ ${formData.message}
               max-w-md
               text-sm
               leading-relaxed
-              text-white/35
+              text-white/60
               sm:text-base
               lg:justify-self-end
             "
           >
-            Have a website, software project, AI idea, design requirement or
-            collaboration in mind? Send me a message and I&apos;ll get back to
-            you.
+            Looking for web development, AI integration, frontend development,
+            graphic design or a creative collaboration? Tell me about your
+            project and I&apos;ll get back to you.
           </motion.p>
         </div>
 
@@ -300,25 +305,32 @@ ${formData.message}
                 max-w-md
                 text-sm
                 leading-relaxed
-                text-white/35
+                text-white/55
               "
             >
-              Send your message directly through the form or contact me on
-              WhatsApp.
+              Send your project details directly through the form or contact
+              me on WhatsApp.
             </p>
 
             {/* Quick links */}
             <div className="mt-10 border-t border-white/10">
               <a
                 href="mailto:arishtayb818@gmail.com"
+                aria-label="Email Tayyaba Sadaqat"
                 className="
                   group
                   flex
+                  min-h-[72px]
                   items-center
                   justify-between
                   border-b
                   border-white/10
                   py-5
+                  outline-none
+                  focus-visible:ring-2
+                  focus-visible:ring-purple-400
+                  focus-visible:ring-offset-2
+                  focus-visible:ring-offset-black
                 "
               >
                 <div>
@@ -327,7 +339,7 @@ ${formData.message}
                       text-[8px]
                       uppercase
                       tracking-[0.25em]
-                      text-white/25
+                      text-white/45
                     "
                   >
                     Email
@@ -338,7 +350,7 @@ ${formData.message}
                       mt-2
                       break-all
                       text-sm
-                      text-white/55
+                      text-white/65
                       transition-colors
                       group-hover:text-white
                     "
@@ -348,9 +360,10 @@ ${formData.message}
                 </div>
 
                 <span
+                  aria-hidden="true"
                   className="
                     text-xl
-                    text-white/25
+                    text-white/40
                     transition-all
                     group-hover:-translate-y-1
                     group-hover:translate-x-1
@@ -364,15 +377,22 @@ ${formData.message}
               <a
                 href="https://www.behance.net/taybs"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
+                aria-label="View Tayyaba Sadaqat's creative work on Behance"
                 className="
                   group
                   flex
+                  min-h-[72px]
                   items-center
                   justify-between
                   border-b
                   border-white/10
                   py-5
+                  outline-none
+                  focus-visible:ring-2
+                  focus-visible:ring-purple-400
+                  focus-visible:ring-offset-2
+                  focus-visible:ring-offset-black
                 "
               >
                 <div>
@@ -381,7 +401,7 @@ ${formData.message}
                       text-[8px]
                       uppercase
                       tracking-[0.25em]
-                      text-white/25
+                      text-white/45
                     "
                   >
                     Behance
@@ -391,7 +411,7 @@ ${formData.message}
                     className="
                       mt-2
                       text-sm
-                      text-white/55
+                      text-white/65
                       transition-colors
                       group-hover:text-white
                     "
@@ -401,9 +421,10 @@ ${formData.message}
                 </div>
 
                 <span
+                  aria-hidden="true"
                   className="
                     text-xl
-                    text-white/25
+                    text-white/40
                     transition-all
                     group-hover:-translate-y-1
                     group-hover:translate-x-1
@@ -426,6 +447,7 @@ ${formData.message}
               delay: 0.1,
             }}
             onSubmit={handleEmail}
+            aria-busy={isSending}
             className="
               border
               border-white/10
@@ -446,7 +468,7 @@ ${formData.message}
                     text-[9px]
                     uppercase
                     tracking-[0.25em]
-                    text-white/35
+                    text-white/55
                   "
                 >
                   Your Name
@@ -456,6 +478,7 @@ ${formData.message}
                   id="name"
                   name="name"
                   type="text"
+                  autoComplete="name"
                   required
                   value={formData.name}
                   onChange={handleChange}
@@ -463,16 +486,16 @@ ${formData.message}
                   className="
                     w-full
                     border-b
-                    border-white/15
+                    border-white/25
                     bg-transparent
                     px-0
                     py-3
-                    text-sm
+                    text-base
                     text-white
                     outline-none
                     transition-colors
-                    placeholder:text-white/15
-                    focus:border-purple-500
+                    placeholder:text-white/30
+                    focus:border-purple-400
                   "
                 />
               </div>
@@ -486,7 +509,7 @@ ${formData.message}
                     text-[9px]
                     uppercase
                     tracking-[0.25em]
-                    text-white/35
+                    text-white/55
                   "
                 >
                   Your Email
@@ -496,6 +519,8 @@ ${formData.message}
                   id="email"
                   name="email"
                   type="email"
+                  inputMode="email"
+                  autoComplete="email"
                   required
                   value={formData.email}
                   onChange={handleChange}
@@ -503,16 +528,16 @@ ${formData.message}
                   className="
                     w-full
                     border-b
-                    border-white/15
+                    border-white/25
                     bg-transparent
                     px-0
                     py-3
-                    text-sm
+                    text-base
                     text-white
                     outline-none
                     transition-colors
-                    placeholder:text-white/15
-                    focus:border-purple-500
+                    placeholder:text-white/30
+                    focus:border-purple-400
                   "
                 />
               </div>
@@ -528,7 +553,7 @@ ${formData.message}
                   text-[9px]
                   uppercase
                   tracking-[0.25em]
-                  text-white/35
+                  text-white/55
                 "
               >
                 Subject
@@ -545,16 +570,16 @@ ${formData.message}
                 className="
                   w-full
                   border-b
-                  border-white/15
+                  border-white/25
                   bg-transparent
                   px-0
                   py-3
-                  text-sm
+                  text-base
                   text-white
                   outline-none
                   transition-colors
-                  placeholder:text-white/15
-                  focus:border-purple-500
+                  placeholder:text-white/30
+                  focus:border-purple-400
                 "
               />
             </div>
@@ -569,7 +594,7 @@ ${formData.message}
                   text-[9px]
                   uppercase
                   tracking-[0.25em]
-                  text-white/35
+                  text-white/55
                 "
               >
                 Tell me about your project
@@ -587,17 +612,17 @@ ${formData.message}
                   w-full
                   resize-none
                   border-b
-                  border-white/15
+                  border-white/25
                   bg-transparent
                   px-0
                   py-3
-                  text-sm
+                  text-base
                   leading-relaxed
                   text-white
                   outline-none
                   transition-colors
-                  placeholder:text-white/15
-                  focus:border-purple-500
+                  placeholder:text-white/30
+                  focus:border-purple-400
                 "
               />
             </div>
@@ -605,17 +630,19 @@ ${formData.message}
             {/* Status */}
             {status.message && (
               <div
+                role={status.type === "error" ? "alert" : "status"}
+                aria-live="polite"
                 className={`
                   mt-6
                   border
                   px-4
                   py-3
-                  text-xs
+                  text-sm
                   leading-relaxed
                   ${
                     status.type === "success"
-                      ? "border-emerald-500/20 bg-emerald-500/10 text-emerald-300"
-                      : "border-red-500/20 bg-red-500/10 text-red-300"
+                      ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-300"
+                      : "border-red-500/30 bg-red-500/10 text-red-300"
                   }
                 `}
               >
@@ -639,6 +666,7 @@ ${formData.message}
                 className="
                   group
                   flex
+                  min-h-[52px]
                   flex-1
                   items-center
                   justify-between
@@ -650,9 +678,14 @@ ${formData.message}
                   uppercase
                   tracking-[0.22em]
                   text-white
+                  outline-none
                   transition-all
                   duration-300
                   hover:bg-purple-500
+                  focus-visible:ring-2
+                  focus-visible:ring-purple-300
+                  focus-visible:ring-offset-2
+                  focus-visible:ring-offset-black
                   disabled:cursor-not-allowed
                   disabled:opacity-50
                 "
@@ -660,6 +693,7 @@ ${formData.message}
                 {isSending ? "Sending..." : "Send Message"}
 
                 <span
+                  aria-hidden="true"
                   className="
                     text-lg
                     transition-transform
@@ -677,11 +711,12 @@ ${formData.message}
                 className="
                   group
                   flex
+                  min-h-[52px]
                   flex-1
                   items-center
                   justify-between
                   border
-                  border-white/15
+                  border-white/20
                   bg-white/[0.02]
                   px-5
                   py-4
@@ -689,17 +724,23 @@ ${formData.message}
                   font-medium
                   uppercase
                   tracking-[0.22em]
-                  text-white/70
+                  text-white/80
+                  outline-none
                   transition-all
                   duration-300
                   hover:border-purple-500/50
                   hover:bg-purple-500/10
                   hover:text-white
+                  focus-visible:ring-2
+                  focus-visible:ring-purple-400
+                  focus-visible:ring-offset-2
+                  focus-visible:ring-offset-black
                 "
               >
                 WhatsApp
 
                 <span
+                  aria-hidden="true"
                   className="
                     text-lg
                     transition-transform
@@ -715,10 +756,10 @@ ${formData.message}
             <p
               className="
                 mt-5
-                text-[8px]
+                text-[9px]
                 uppercase
                 tracking-[0.17em]
-                text-white/20
+                text-white/40
               "
             >
               Your message will be sent directly to my inbox.
@@ -727,7 +768,7 @@ ${formData.message}
         </div>
 
         {/* Footer */}
-        <div
+        <footer
           className="
             mt-20
             flex
@@ -739,7 +780,7 @@ ${formData.message}
             text-[9px]
             uppercase
             tracking-[0.25em]
-            text-white/20
+            text-white/40
             sm:flex-row
             sm:items-center
             sm:justify-between
@@ -748,9 +789,9 @@ ${formData.message}
           <p>© 2026 Tayyaba Sadaqat</p>
 
           <p>
-            Developer · AI · Designer
+            Software Developer · AI Developer · Graphic Designer
           </p>
-        </div>
+        </footer>
       </div>
     </section>
   );

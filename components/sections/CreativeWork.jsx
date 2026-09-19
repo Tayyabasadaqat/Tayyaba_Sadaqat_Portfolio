@@ -9,21 +9,25 @@ const creativeItems = [
     title: "Social Media",
     category: "Posts · Campaigns · Content",
     image: "/creative/social-media.jpg",
+    alt: "Social media design work by Tayyaba Sadaqat featuring digital posts, campaign visuals and branded content",
   },
   {
     title: "Branding",
     category: "Identity · Visual Systems · Logos",
     image: "/creative/Branding.jpg",
+    alt: "Branding and visual identity design work by Tayyaba Sadaqat",
   },
   {
     title: "E-Commerce",
     category: "Amazon · A+ Content · Listings",
     image: "/creative/ecommerce.jpg",
+    alt: "E-commerce design work by Tayyaba Sadaqat including Amazon A+ content and product listing visuals",
   },
   {
     title: "Web Graphics",
     category: "Landing Pages · Funnels · Digital",
     image: "/creative/web-graphics.png",
+    alt: "Web graphic design work by Tayyaba Sadaqat including landing pages, funnels and digital visuals",
   },
 ];
 
@@ -49,6 +53,7 @@ export default function CreativeWork() {
     <>
       <section
         id="creative-work"
+        aria-labelledby="creative-work-heading"
         className="
           relative
           overflow-hidden
@@ -93,7 +98,7 @@ export default function CreativeWork() {
                 text-[10px]
                 uppercase
                 tracking-[0.3em]
-                text-white/20
+                text-white/40
                 sm:block
               "
             >
@@ -112,6 +117,7 @@ export default function CreativeWork() {
             "
           >
             <motion.h2
+              id="creative-work-heading"
               initial={{ opacity: 0, y: 45 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -155,13 +161,14 @@ export default function CreativeWork() {
                 max-w-md
                 text-sm
                 leading-relaxed
-                text-white/35
+                text-white/60
                 sm:text-base
                 lg:justify-self-end
               "
             >
-              A selection of visual work across branding, social media,
-              ecommerce, motion and digital design.
+              A selection of graphic design and visual work across branding,
+              social media content, e-commerce, web graphics and digital
+              design.
             </motion.p>
           </div>
 
@@ -172,6 +179,7 @@ export default function CreativeWork() {
                 key={item.title}
                 type="button"
                 onClick={() => setActiveIndex(index)}
+                aria-label={`View ${item.title} design work`}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{
@@ -191,13 +199,22 @@ export default function CreativeWork() {
                   overflow-hidden
                   bg-[#0b0b0b]
                   text-left
+                  outline-none
+                  focus-visible:ring-2
+                  focus-visible:ring-purple-400
+                  focus-visible:ring-offset-4
+                  focus-visible:ring-offset-black
                 "
               >
                 {/* Image */}
                 <Image
                   src={item.image}
-                  alt={item.title}
+                  alt={item.alt}
                   fill
+                  sizes="
+                    (max-width: 767px) 100vw,
+                    50vw
+                  "
                   className="
                     object-cover
                     grayscale
@@ -206,12 +223,16 @@ export default function CreativeWork() {
                     ease-out
                     group-hover:scale-[1.035]
                     group-hover:grayscale-0
+                    group-focus-visible:scale-[1.035]
+                    group-focus-visible:grayscale-0
                   "
                 />
 
                 {/* Dark overlay */}
                 <div
+                  aria-hidden="true"
                   className="
+                    pointer-events-none
                     absolute
                     inset-0
                     bg-gradient-to-t
@@ -223,32 +244,37 @@ export default function CreativeWork() {
 
                 {/* Purple hover wash */}
                 <div
+                  aria-hidden="true"
                   className="
+                    pointer-events-none
                     absolute
                     inset-0
                     bg-purple-800/0
                     transition-colors
                     duration-500
                     group-hover:bg-purple-800/10
+                    group-focus-visible:bg-purple-800/10
                   "
                 />
 
                 {/* Number */}
                 <span
+                  aria-hidden="true"
                   className="
                     absolute
                     left-5
                     top-5
                     text-[9px]
                     tracking-[0.28em]
-                    text-white/45
+                    text-white/60
                   "
                 >
                   {String(index + 1).padStart(2, "0")}
                 </span>
 
-                {/* View */}
+                {/* View indicator */}
                 <span
+                  aria-hidden="true"
                   className="
                     absolute
                     right-5
@@ -256,11 +282,13 @@ export default function CreativeWork() {
                     text-[8px]
                     uppercase
                     tracking-[0.22em]
-                    text-white/40
-                    opacity-0
+                    text-white/70
+                    opacity-100
                     transition-all
                     duration-300
-                    group-hover:opacity-100
+                    sm:opacity-0
+                    sm:group-hover:opacity-100
+                    sm:group-focus-visible:opacity-100
                   "
                 >
                   View ↗
@@ -298,6 +326,7 @@ export default function CreativeWork() {
                       transition-transform
                       duration-500
                       group-hover:translate-x-1
+                      group-focus-visible:translate-x-1
                       sm:text-4xl
                     "
                   >
@@ -314,6 +343,9 @@ export default function CreativeWork() {
       <AnimatePresence>
         {activeItem && (
           <motion.div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="creative-lightbox-title"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -336,34 +368,39 @@ export default function CreativeWork() {
             <button
               type="button"
               onClick={() => setActiveIndex(null)}
+              aria-label="Close creative work viewer"
               className="
                 absolute
                 right-5
                 top-5
                 z-20
                 flex
-                h-10
-                w-10
+                h-11
+                w-11
                 items-center
                 justify-center
                 rounded-full
                 border
-                border-white/10
+                border-white/20
                 text-xl
-                text-white/60
+                text-white/70
+                outline-none
                 transition-all
                 hover:border-purple-400/50
                 hover:bg-purple-500
                 hover:text-white
+                focus-visible:ring-2
+                focus-visible:ring-purple-400
                 sm:right-8
                 sm:top-8
               "
             >
-              ×
+              <span aria-hidden="true">×</span>
             </button>
 
             {/* Counter */}
             <div
+              aria-live="polite"
               className="
                 absolute
                 left-5
@@ -372,13 +409,15 @@ export default function CreativeWork() {
                 text-[9px]
                 uppercase
                 tracking-[0.3em]
-                text-white/25
+                text-white/50
                 sm:left-8
                 sm:top-9
               "
             >
               {String(activeIndex + 1).padStart(2, "0")}
-              <span className="mx-2 text-white/10">/</span>
+
+              <span className="mx-2 text-white/30">/</span>
+
               {String(creativeItems.length).padStart(2, "0")}
             </div>
 
@@ -424,8 +463,9 @@ export default function CreativeWork() {
               >
                 <Image
                   src={activeItem.image}
-                  alt={activeItem.title}
+                  alt={activeItem.alt}
                   fill
+                  sizes="(max-width: 1200px) 90vw, 1100px"
                   className="object-contain"
                   priority
                 />
@@ -461,6 +501,7 @@ export default function CreativeWork() {
                   </p>
 
                   <h3
+                    id="creative-lightbox-title"
                     className="
                       text-2xl
                       font-semibold
@@ -477,43 +518,51 @@ export default function CreativeWork() {
                   <button
                     type="button"
                     onClick={prevItem}
+                    aria-label="View previous creative project"
                     className="
                       flex
-                      h-10
-                      w-10
+                      h-11
+                      w-11
                       items-center
                       justify-center
                       rounded-full
                       border
-                      border-white/10
-                      text-white/40
+                      border-white/20
+                      text-white/70
+                      outline-none
                       transition-all
                       hover:border-purple-400/50
                       hover:text-purple-400
+                      focus-visible:ring-2
+                      focus-visible:ring-purple-400
                     "
                   >
-                    ←
+                    <span aria-hidden="true">←</span>
                   </button>
 
                   <button
                     type="button"
                     onClick={nextItem}
+                    aria-label="View next creative project"
                     className="
                       flex
-                      h-10
-                      w-10
+                      h-11
+                      w-11
                       items-center
                       justify-center
                       rounded-full
                       border
-                      border-white/10
-                      text-white/40
+                      border-white/20
+                      text-white/70
+                      outline-none
                       transition-all
                       hover:border-purple-400/50
                       hover:text-purple-400
+                      focus-visible:ring-2
+                      focus-visible:ring-purple-400
                     "
                   >
-                    →
+                    <span aria-hidden="true">→</span>
                   </button>
                 </div>
               </div>

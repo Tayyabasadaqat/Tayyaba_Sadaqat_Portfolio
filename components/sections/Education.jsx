@@ -10,7 +10,7 @@ const education = [
     institution: "International Islamic University Islamabad",
     status: "Currently Pursuing",
     description:
-      "Building a strong foundation in software engineering, development, databases, artificial intelligence and modern computing technologies.",
+      "Pursuing a BS in Software Engineering with a focus on software development, databases, artificial intelligence and modern computing technologies.",
   },
   {
     number: "02",
@@ -19,17 +19,16 @@ const education = [
     institution: "National Skills University",
     status: "Professional Training",
     description:
-      "Professional training focused on visual communication, graphic design, creative content and video editing.",
+      "Completed professional training in graphic design, visual communication, creative content development and video editing.",
   },
-  
   {
     number: "03",
     type: "Upcoming",
     title: "Advanced AI & Technology",
-    institution: "Microsoft, Huawei",
-    status: "Upcoming",
+    institution: "Microsoft & Huawei",
+    status: "Upcoming Training",
     description:
-      "Upcoming professional learning focused on advanced AI concepts and modern technology.",
+      "Upcoming professional learning focused on advanced artificial intelligence concepts and modern technology.",
   },
 ];
 
@@ -37,6 +36,7 @@ export default function Education() {
   return (
     <section
       id="education"
+      aria-labelledby="education-heading"
       className="
         relative
         overflow-hidden
@@ -52,7 +52,10 @@ export default function Education() {
       "
     >
       {/* Background glow */}
-      <div className="pointer-events-none absolute inset-0">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+      >
         <motion.div
           animate={{
             x: [0, 30, -20, 0],
@@ -77,7 +80,6 @@ export default function Education() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-[1600px]">
-
         {/* Section label */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -98,7 +100,7 @@ export default function Education() {
             03 — Education
           </span>
 
-          <span className="hidden text-white/20 sm:block">
+          <span className="hidden text-white/40 sm:block">
             Learning & Growth
           </span>
         </motion.div>
@@ -114,6 +116,7 @@ export default function Education() {
           "
         >
           <motion.h2
+            id="education-heading"
             initial={{ opacity: 0, y: 45 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -157,13 +160,14 @@ export default function Education() {
               max-w-md
               text-sm
               leading-relaxed
-              text-white/35
+              text-white/60
               sm:text-base
               lg:justify-self-end
             "
           >
-            My academic foundation, creative training and continuous
-            exploration of emerging AI technologies.
+            My academic foundation in software engineering, professional
+            creative training and continuous learning in artificial
+            intelligence and emerging technologies.
           </motion.p>
         </div>
 
@@ -190,6 +194,7 @@ export default function Education() {
             >
               {/* Hover background */}
               <div
+                aria-hidden="true"
                 className="
                   pointer-events-none
                   absolute
@@ -222,16 +227,17 @@ export default function Education() {
               >
                 {/* Number */}
                 <span
+                  aria-hidden="true"
                   className="
                     text-[10px]
                     tracking-[0.3em]
-                    text-purple-400/60
+                    text-purple-400/70
                   "
                 >
                   {item.number}
                 </span>
 
-                {/* Main info */}
+                {/* Main information */}
                 <div>
                   <div className="mb-3 flex flex-wrap items-center gap-3">
                     <span
@@ -250,7 +256,7 @@ export default function Education() {
                         className="
                           rounded-full
                           border
-                          border-purple-500/20
+                          border-purple-500/30
                           bg-purple-500/10
                           px-3
                           py-1
@@ -290,7 +296,7 @@ export default function Education() {
                       text-xs
                       uppercase
                       tracking-[0.16em]
-                      text-white/30
+                      text-white/50
                     "
                   >
                     {item.institution}
@@ -304,10 +310,10 @@ export default function Education() {
                       max-w-md
                       text-sm
                       leading-relaxed
-                      text-white/35
+                      text-white/55
                       transition-colors
                       duration-300
-                      group-hover:text-white/55
+                      group-hover:text-white/70
                     "
                   >
                     {item.description}
@@ -319,7 +325,7 @@ export default function Education() {
                       text-[8px]
                       uppercase
                       tracking-[0.25em]
-                      text-purple-400/60
+                      text-purple-400/80
                     "
                   >
                     {item.status}

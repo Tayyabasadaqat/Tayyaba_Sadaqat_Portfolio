@@ -120,6 +120,7 @@ function ProjectRow({ project, ai = false, index }) {
     >
       {/* Hover sweep */}
       <div
+        aria-hidden="true"
         className={`
           pointer-events-none
           absolute
@@ -130,6 +131,7 @@ function ProjectRow({ project, ai = false, index }) {
           duration-700
           ease-[cubic-bezier(0.16,1,0.3,1)]
           group-hover:scale-x-100
+          group-focus-within:scale-x-100
           ${
             ai
               ? "bg-gradient-to-r from-purple-900/25 via-purple-900/[0.05] to-transparent"
@@ -138,7 +140,6 @@ function ProjectRow({ project, ai = false, index }) {
         `}
       />
 
-      {/* Whole project row is clickable */}
       <Link
         href={`/projects/${project.slug}`}
         aria-label={`View ${project.title} project`}
@@ -148,6 +149,11 @@ function ProjectRow({ project, ai = false, index }) {
           grid
           gap-5
           py-8
+          outline-none
+          transition
+          focus-visible:ring-1
+          focus-visible:ring-inset
+          focus-visible:ring-purple-400/60
           sm:py-9
           lg:grid-cols-[70px_1.05fr_0.8fr_40px]
           lg:items-center
@@ -156,6 +162,7 @@ function ProjectRow({ project, ai = false, index }) {
       >
         {/* Number */}
         <span
+          aria-hidden="true"
           className={`
             text-[10px]
             tracking-[0.3em]
@@ -163,8 +170,8 @@ function ProjectRow({ project, ai = false, index }) {
             duration-300
             ${
               ai
-                ? "text-purple-400/70 group-hover:text-purple-300"
-                : "text-white/20 group-hover:text-white/40"
+                ? "text-purple-400/80 group-hover:text-purple-300"
+                : "text-white/40 group-hover:text-white/60"
             }
           `}
         >
@@ -182,7 +189,7 @@ function ProjectRow({ project, ai = false, index }) {
               ${
                 ai
                   ? "text-purple-400"
-                  : "text-white/30"
+                  : "text-white/50"
               }
             `}
           >
@@ -201,6 +208,7 @@ function ProjectRow({ project, ai = false, index }) {
               duration-500
               group-hover:translate-x-2
               group-hover:text-white
+              group-focus-within:translate-x-2
               sm:text-[7vw]
               lg:text-[3.5vw]
             "
@@ -216,16 +224,25 @@ function ProjectRow({ project, ai = false, index }) {
               max-w-md
               text-sm
               leading-relaxed
-              text-white/35
+              text-white/55
               transition-colors
               duration-300
-              group-hover:text-white/55
+              group-hover:text-white/70
+              sm:text-base
             "
           >
             {project.description}
           </p>
 
-          <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
+          <div
+            className="
+              mt-4
+              flex
+              flex-wrap
+              gap-x-4
+              gap-y-2
+            "
+          >
             {project.tech.map((tech) => (
               <span
                 key={tech}
@@ -233,10 +250,10 @@ function ProjectRow({ project, ai = false, index }) {
                   text-[8px]
                   uppercase
                   tracking-[0.18em]
-                  text-white/20
+                  text-white/40
                   transition-colors
                   duration-300
-                  group-hover:text-purple-300/70
+                  group-hover:text-purple-300/80
                 "
               >
                 {tech}
@@ -244,7 +261,7 @@ function ProjectRow({ project, ai = false, index }) {
             ))}
           </div>
 
-          {/* Mobile view details */}
+          {/* Mobile project CTA */}
           <span
             className="
               mt-5
@@ -254,17 +271,18 @@ function ProjectRow({ project, ai = false, index }) {
               text-[8px]
               uppercase
               tracking-[0.22em]
-              text-purple-400/70
+              text-purple-400
               lg:hidden
             "
           >
             View Project
-            <span>↗</span>
+            <span aria-hidden="true">↗</span>
           </span>
         </div>
 
-        {/* Arrow */}
+        {/* Desktop arrow */}
         <div
+          aria-hidden="true"
           className="
             hidden
             h-10
@@ -273,9 +291,9 @@ function ProjectRow({ project, ai = false, index }) {
             justify-center
             rounded-full
             border
-            border-white/10
+            border-white/20
             text-lg
-            text-white/25
+            text-white/50
             transition-all
             duration-300
             group-hover:-translate-y-1
@@ -284,6 +302,9 @@ function ProjectRow({ project, ai = false, index }) {
             group-hover:border-purple-400/50
             group-hover:bg-purple-500
             group-hover:text-white
+            group-focus-within:border-purple-400/50
+            group-focus-within:bg-purple-500
+            group-focus-within:text-white
             lg:flex
           "
         >
@@ -298,6 +319,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
+      aria-labelledby="projects-heading"
       className="
         relative
         overflow-hidden
@@ -311,7 +333,10 @@ export default function Projects() {
       "
     >
       {/* Background */}
-      <div className="pointer-events-none absolute inset-0">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+      >
         <motion.div
           animate={{
             x: [0, 35, -15, 0],
@@ -356,7 +381,7 @@ export default function Projects() {
             05 — Projects
           </span>
 
-          <span className="hidden text-white/20 sm:block">
+          <span className="hidden text-white/40 sm:block">
             Selected Work
           </span>
         </motion.div>
@@ -372,6 +397,7 @@ export default function Projects() {
           "
         >
           <motion.h2
+            id="projects-heading"
             initial={{ opacity: 0, y: 45 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -415,13 +441,14 @@ export default function Projects() {
               max-w-md
               text-sm
               leading-relaxed
-              text-white/35
+              text-white/60
               sm:text-base
               lg:justify-self-end
             "
           >
-            A mix of AI-enhanced products, websites and software systems —
-            separated by how intelligence is used in each experience.
+            Selected software engineering, AI, machine learning and web
+            development projects spanning intelligent applications,
+            responsive websites and software systems.
           </motion.p>
         </div>
 
@@ -464,10 +491,11 @@ export default function Projects() {
             </div>
 
             <span
+              aria-label={`${aiProjects.length} AI-powered projects`}
               className="
                 text-5xl
                 font-black
-                text-purple-500/10
+                text-purple-500/20
               "
             >
               {String(aiProjects.length).padStart(2, "0")}
@@ -486,6 +514,7 @@ export default function Projects() {
 
         {/* Divider */}
         <div
+          aria-hidden="true"
           className="
             my-14
             flex
@@ -534,7 +563,7 @@ export default function Projects() {
                   text-[8px]
                   uppercase
                   tracking-[0.3em]
-                  text-white/25
+                  text-white/50
                 "
               >
                 Collection 02
@@ -553,10 +582,11 @@ export default function Projects() {
             </div>
 
             <span
+              aria-label={`${nonAiProjects.length} non-AI projects`}
               className="
                 text-5xl
                 font-black
-                text-white/[0.04]
+                text-white/10
               "
             >
               {String(nonAiProjects.length).padStart(2, "0")}

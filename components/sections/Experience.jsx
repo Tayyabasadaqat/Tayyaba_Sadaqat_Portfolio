@@ -11,7 +11,7 @@ const categories = [
     title: "Developer",
     accent: "AI / Web",
     description:
-      "Building modern web experiences, software systems and AI-powered products.",
+      "Building modern web applications, software systems and AI-powered digital products.",
   },
   {
     id: "design",
@@ -20,7 +20,7 @@ const categories = [
     title: "Graphic",
     accent: "Designer",
     description:
-      "Creating visual identities, marketing content and digital experiences for brands.",
+      "Creating visual identities, marketing content, video assets and digital experiences for brands.",
   },
 ];
 
@@ -122,6 +122,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
+      aria-labelledby="experience-heading"
       className="
         relative
         overflow-hidden
@@ -134,8 +135,11 @@ export default function Experience() {
         lg:py-20
       "
     >
-      {/* Background */}
-      <div className="pointer-events-none absolute inset-0">
+      {/* Decorative background */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+      >
         <motion.div
           animate={{
             x: [0, 40, -20, 0],
@@ -173,7 +177,8 @@ export default function Experience() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-[1600px]">
-        {/* Label */}
+
+        {/* Section label */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -194,7 +199,7 @@ export default function Experience() {
             06 — Experience
           </span>
 
-          <span className="hidden text-white/20 sm:block">
+          <span className="hidden text-white/40 sm:block">
             Development / Creative
           </span>
         </motion.div>
@@ -210,6 +215,7 @@ export default function Experience() {
           "
         >
           <motion.h2
+            id="experience-heading"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -228,6 +234,7 @@ export default function Experience() {
             "
           >
             Two sides.
+
             <span
               className="
                 block
@@ -255,13 +262,13 @@ export default function Experience() {
                 max-w-md
                 text-sm
                 leading-relaxed
-                text-white/35
+                text-white/60
                 sm:text-base
               "
             >
-              My experience lives across two disciplines — building digital
-              products through technology and communicating ideas through
-              visual design.
+              My professional experience spans software and web development,
+              AI integration, graphic design and video editing, combining
+              technical problem-solving with visual communication.
             </p>
 
             <p
@@ -279,7 +286,7 @@ export default function Experience() {
           </motion.div>
         </div>
 
-        {/* CATEGORY CARDS */}
+        {/* Category cards */}
         <div className="grid gap-4 lg:grid-cols-2">
           {categories.map((category, index) => {
             const isActive = activeCategory === category.id;
@@ -289,6 +296,8 @@ export default function Experience() {
                 key={category.id}
                 type="button"
                 onClick={() => toggleCategory(category.id)}
+                aria-expanded={isActive}
+                aria-controls={`${category.id}-experience`}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -305,8 +314,12 @@ export default function Experience() {
                   border
                   p-7
                   text-left
+                  outline-none
                   transition-all
                   duration-500
+                  focus-visible:border-purple-400
+                  focus-visible:ring-2
+                  focus-visible:ring-purple-400/40
                   sm:p-9
                   lg:min-h-[390px]
                   ${
@@ -318,7 +331,9 @@ export default function Experience() {
               >
                 {/* Hover wash */}
                 <div
+                  aria-hidden="true"
                   className={`
+                    pointer-events-none
                     absolute
                     inset-0
                     origin-bottom
@@ -332,13 +347,14 @@ export default function Experience() {
                     ${
                       isActive
                         ? "scale-y-100"
-                        : "scale-y-0 group-hover:scale-y-100"
+                        : "scale-y-0 group-hover:scale-y-100 group-focus-visible:scale-y-100"
                     }
                   `}
                 />
 
-                {/* Ghost word */}
+                {/* Decorative ghost word */}
                 <span
+                  aria-hidden="true"
                   className="
                     pointer-events-none
                     absolute
@@ -373,10 +389,11 @@ export default function Experience() {
                 >
                   <div className="flex items-start justify-between">
                     <span
+                      aria-hidden="true"
                       className="
                         text-xs
                         tracking-[0.3em]
-                        text-white/25
+                        text-white/45
                         transition-colors
                         duration-300
                         group-hover:text-purple-400
@@ -386,6 +403,7 @@ export default function Experience() {
                     </span>
 
                     <div
+                      aria-hidden="true"
                       className={`
                         flex
                         h-11
@@ -400,7 +418,7 @@ export default function Experience() {
                         ${
                           isActive
                             ? "rotate-45 border-purple-400 bg-purple-500 text-white"
-                            : "border-white/10 text-white/30 group-hover:rotate-45 group-hover:border-purple-400 group-hover:bg-purple-500 group-hover:text-white"
+                            : "border-white/20 text-white/50 group-hover:rotate-45 group-hover:border-purple-400 group-hover:bg-purple-500 group-hover:text-white"
                         }
                       `}
                     >
@@ -455,7 +473,7 @@ export default function Experience() {
                         max-w-md
                         text-sm
                         leading-relaxed
-                        text-white/35
+                        text-white/60
                       "
                     >
                       {category.description}
@@ -467,10 +485,11 @@ export default function Experience() {
           })}
         </div>
 
-        {/* EXPANDED EXPERIENCE */}
+        {/* Expanded experience */}
         <AnimatePresence mode="wait">
           {activeCategory && (
             <motion.div
+              id={`${activeCategory}-experience`}
               key={activeCategory}
               initial={{
                 opacity: 0,
@@ -494,6 +513,7 @@ export default function Experience() {
               className="overflow-hidden"
             >
               <div className="pt-16">
+
                 {/* Expanded header */}
                 <div
                   className="
@@ -501,6 +521,7 @@ export default function Experience() {
                     flex
                     items-end
                     justify-between
+                    gap-6
                     border-b
                     border-white/10
                     pb-6
@@ -534,20 +555,27 @@ export default function Experience() {
                   <button
                     type="button"
                     onClick={() => setActiveCategory(null)}
+                    aria-label={`Close ${activeTitle} experience`}
                     className="
+                      rounded-sm
+                      px-2
+                      py-2
                       text-[9px]
                       uppercase
                       tracking-[0.25em]
-                      text-white/30
+                      text-white/50
+                      outline-none
                       transition-colors
                       hover:text-purple-400
+                      focus-visible:ring-2
+                      focus-visible:ring-purple-400/50
                     "
                   >
                     Close ×
                   </button>
                 </div>
 
-                {/* Entries */}
+                {/* Experience entries */}
                 <div>
                   {activeExperience.map((item, index) => (
                     <motion.article
@@ -581,7 +609,7 @@ export default function Experience() {
                           text-[9px]
                           uppercase
                           tracking-[0.25em]
-                          text-purple-400/70
+                          text-purple-400/80
                         "
                       >
                         {item.period}
@@ -594,7 +622,7 @@ export default function Experience() {
                             text-xl
                             font-medium
                             tracking-[-0.03em]
-                            text-white/80
+                            text-white/90
                             transition-all
                             duration-300
                             group-hover:translate-x-2
@@ -611,7 +639,7 @@ export default function Experience() {
                             text-[9px]
                             uppercase
                             tracking-[0.25em]
-                            text-white/30
+                            text-white/50
                           "
                         >
                           {item.company}
@@ -625,9 +653,9 @@ export default function Experience() {
                             max-w-lg
                             text-sm
                             leading-relaxed
-                            text-white/35
+                            text-white/60
                             transition-colors
-                            group-hover:text-white/50
+                            group-hover:text-white/75
                           "
                         >
                           {item.description}
@@ -640,13 +668,13 @@ export default function Experience() {
                               className="
                                 rounded-full
                                 border
-                                border-white/10
+                                border-white/15
                                 px-3
                                 py-1.5
                                 text-[8px]
                                 uppercase
                                 tracking-[0.16em]
-                                text-white/30
+                                text-white/50
                                 transition-all
                                 group-hover:border-purple-500/30
                                 group-hover:text-purple-300

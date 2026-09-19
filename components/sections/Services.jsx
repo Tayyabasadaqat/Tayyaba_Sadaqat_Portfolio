@@ -8,25 +8,25 @@ const services = [
     title: "Web Development",
     slug: "web-development",
     description:
-      "Modern, responsive websites built with clean interfaces, strong performance and scalable structure.",
+      "Modern, responsive websites and web applications built with clean interfaces, strong performance and scalable development practices.",
   },
   {
     title: "AI Integration",
     slug: "ai-integration",
     description:
-      "AI-powered features such as assistants, smart workflows and API-driven experiences integrated into web products.",
+      "AI-powered assistants, intelligent workflows and API-driven features integrated into modern web applications.",
   },
   {
     title: "Frontend Development",
     slug: "frontend-development",
     description:
-      "Interactive interfaces using modern frameworks with a focus on responsiveness, usability and polished motion.",
+      "Responsive and interactive user interfaces built with modern frontend technologies, with a focus on usability, performance and polished interactions.",
   },
   {
     title: "Creative Design",
     slug: "creative-design",
     description:
-      "Visual design for digital platforms, including social media creatives, branded content and interface concepts.",
+      "Visual design for digital platforms, including social media creatives, branded content, UI concepts and engaging digital experiences.",
   },
 ];
 
@@ -34,6 +34,7 @@ export default function Services() {
   return (
     <section
       id="services"
+      aria-labelledby="services-heading"
       className="
         relative
         min-h-screen
@@ -48,7 +49,10 @@ export default function Services() {
       "
     >
       {/* Purple atmosphere */}
-      <div className="pointer-events-none absolute inset-0">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+      >
         <div
           className="
             absolute
@@ -119,7 +123,7 @@ export default function Services() {
               text-[10px]
               uppercase
               tracking-[0.3em]
-              text-white/20
+              text-white/40
               sm:block
               sm:text-xs
             "
@@ -140,6 +144,7 @@ export default function Services() {
           {/* LEFT SIDE */}
           <div className="lg:sticky lg:top-28">
             <motion.h2
+              id="services-heading"
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
@@ -158,34 +163,19 @@ export default function Services() {
               "
             >
               I create
-            </motion.h2>
-
-            <motion.h2
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{
-                duration: 0.9,
-                delay: 0.1,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="
-                bg-gradient-to-r
-                from-purple-400
-                via-violet-500
-                to-purple-600
-                bg-clip-text
-                text-[12vw]
-                font-black
-                uppercase
-                leading-[0.88]
-                tracking-[-0.05em]
-                text-transparent
-                sm:text-[9vw]
-                lg:text-[6vw]
-              "
-            >
-              digital solutions.
+              <span
+                className="
+                  block
+                  bg-gradient-to-r
+                  from-purple-400
+                  via-violet-500
+                  to-purple-600
+                  bg-clip-text
+                  text-transparent
+                "
+              >
+                digital solutions.
+              </span>
             </motion.h2>
 
             <motion.p
@@ -201,16 +191,17 @@ export default function Services() {
                 max-w-lg
                 text-sm
                 leading-relaxed
-                text-white/45
+                text-white/60
                 sm:text-base
               "
             >
-              I work across development, AI and creative design to build
-              digital products that are functional, responsive and visually
-              distinctive.
+              I build responsive websites, frontend experiences and
+              AI-integrated digital products while combining software
+              development with thoughtful visual design.
             </motion.p>
 
             <motion.div
+              aria-hidden="true"
               initial={{ opacity: 0, scaleX: 0 }}
               whileInView={{ opacity: 1, scaleX: 1 }}
               viewport={{ once: true }}
@@ -255,6 +246,7 @@ export default function Services() {
               >
                 <Link
                   href={`/services/${service.slug}`}
+                  aria-label={`View ${service.title} service`}
                   className="
                     group
                     relative
@@ -263,11 +255,17 @@ export default function Services() {
                     border-t
                     border-white/10
                     py-7
+                    outline-none
+                    transition-colors
+                    focus-visible:border-purple-400
+                    focus-visible:ring-1
+                    focus-visible:ring-purple-400/60
                     sm:py-8
                   "
                 >
                   {/* Hover background */}
                   <div
+                    aria-hidden="true"
                     className="
                       absolute
                       inset-0
@@ -281,6 +279,7 @@ export default function Services() {
                       duration-700
                       ease-[cubic-bezier(0.16,1,0.3,1)]
                       group-hover:scale-x-100
+                      group-focus-visible:scale-x-100
                     "
                   />
 
@@ -298,10 +297,11 @@ export default function Services() {
                       <div className="flex items-center gap-4">
                         {/* Number */}
                         <span
+                          aria-hidden="true"
                           className="
                             text-[10px]
                             tracking-[0.25em]
-                            text-white/20
+                            text-white/40
                             transition-colors
                             duration-300
                             group-hover:text-purple-400
@@ -316,11 +316,13 @@ export default function Services() {
                             text-xl
                             font-medium
                             tracking-[-0.03em]
-                            text-white/80
+                            text-white/90
                             transition-all
                             duration-300
                             group-hover:translate-x-2
                             group-hover:text-purple-400
+                            group-focus-visible:translate-x-2
+                            group-focus-visible:text-purple-400
                             sm:text-2xl
                             md:text-3xl
                           "
@@ -337,17 +339,17 @@ export default function Services() {
                           max-w-xl
                           text-sm
                           leading-relaxed
-                          text-white/35
+                          text-white/55
                           transition-colors
                           duration-300
-                          group-hover:text-white/50
+                          group-hover:text-white/70
                           sm:text-base
                         "
                       >
                         {service.description}
                       </p>
 
-                      {/* View details appears on hover */}
+                      {/* View details */}
                       <div
                         className="
                           ml-[42px]
@@ -360,29 +362,34 @@ export default function Services() {
                       >
                         <span
                           className="
-                            translate-y-5
                             text-[8px]
                             uppercase
                             tracking-[0.25em]
-                            text-purple-400
-                            opacity-0
+                            text-purple-400/80
                             transition-all
                             duration-300
-                            group-hover:translate-y-0
-                            group-hover:opacity-100
+                            sm:translate-y-5
+                            sm:opacity-0
+                            sm:group-hover:translate-y-0
+                            sm:group-hover:opacity-100
+                            sm:group-focus-visible:translate-y-0
+                            sm:group-focus-visible:opacity-100
                           "
                         >
                           View Service
                         </span>
 
                         <span
+                          aria-hidden="true"
                           className="
                             h-[1px]
-                            w-0
-                            bg-purple-400
+                            w-6
+                            bg-purple-400/60
                             transition-all
                             duration-500
-                            group-hover:w-10
+                            sm:w-0
+                            sm:group-hover:w-10
+                            sm:group-focus-visible:w-10
                           "
                         />
                       </div>
@@ -390,6 +397,7 @@ export default function Services() {
 
                     {/* Arrow */}
                     <div
+                      aria-hidden="true"
                       className="
                         flex
                         h-11
@@ -399,18 +407,20 @@ export default function Services() {
                         justify-center
                         rounded-full
                         border
-                        border-white/10
+                        border-white/20
                         text-xl
-                        text-white/20
+                        text-white/50
                         transition-all
                         duration-300
-
                         group-hover:-translate-y-1
                         group-hover:translate-x-1
                         group-hover:rotate-45
                         group-hover:border-purple-400
                         group-hover:bg-purple-500
                         group-hover:text-white
+                        group-focus-visible:border-purple-400
+                        group-focus-visible:bg-purple-500
+                        group-focus-visible:text-white
                       "
                     >
                       ↗
@@ -420,7 +430,10 @@ export default function Services() {
               </motion.div>
             ))}
 
-            <div className="border-t border-white/10" />
+            <div
+              aria-hidden="true"
+              className="border-t border-white/10"
+            />
           </div>
         </div>
       </div>

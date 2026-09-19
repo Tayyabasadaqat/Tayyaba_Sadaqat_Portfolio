@@ -169,12 +169,14 @@ export default async function ProjectPage({ params }) {
         <p
           className="
             max-w-4xl
-            text-2xl
-            leading-relaxed
-            tracking-[-0.03em]
-            text-white/70
-            sm:text-3xl
-            lg:text-4xl
+            text-base
+            leading-[1.8]
+            tracking-[-0.01em]
+            text-white/55
+            sm:text-lg
+            md:text-xl
+            lg:text-[1.35rem]
+            lg:leading-[1.75]
           "
         >
           {project.overview}

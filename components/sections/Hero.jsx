@@ -1,16 +1,32 @@
 "use client";
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import MenuOverlay from "@/components/MenuOverlay";
 
 export default function Hero() {
-    const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <section className="relative min-h-screen bg-black overflow-hidden flex flex-col justify-between px-5 sm:px-8 md:px-12 lg:px-16 py-6">
-
+    <section
+      id="home"
+      className="
+        relative
+        min-h-screen
+        overflow-hidden
+        bg-black
+        px-5
+        py-6
+        sm:px-8
+        md:px-12
+        lg:px-16
+        flex
+        flex-col
+        justify-between
+      "
+    >
       {/* Background */}
-      <div className="absolute inset-0 pointer-events-none">
-
+      <div className="pointer-events-none absolute inset-0">
         <motion.div
           animate={{
             x: [0, -30, 10, 0],
@@ -23,8 +39,11 @@ export default function Hero() {
             ease: "easeInOut",
           }}
           className="
-            absolute -top-52 -right-52
-            w-[650px] h-[650px]
+            absolute
+            -right-52
+            -top-52
+            h-[650px]
+            w-[650px]
             rounded-full
             bg-purple-700/20
             blur-[180px]
@@ -42,8 +61,11 @@ export default function Hero() {
             ease: "easeInOut",
           }}
           className="
-            absolute bottom-[-260px] left-[-160px]
-            w-[600px] h-[600px]
+            absolute
+            bottom-[-260px]
+            left-[-160px]
+            h-[600px]
+            w-[600px]
             rounded-full
             bg-violet-500/10
             blur-[190px]
@@ -52,7 +74,8 @@ export default function Hero() {
 
         <div
           className="
-            absolute inset-0
+            absolute
+            inset-0
             bg-[radial-gradient(circle_at_center,rgba(124,58,237,0.05),transparent_55%)]
           "
         />
@@ -63,60 +86,83 @@ export default function Hero() {
         initial={{ opacity: 0, y: -25 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative z-20 flex items-center justify-between"
+        className="
+          relative
+          z-20
+          flex
+          items-center
+          justify-between
+        "
       >
-        <div className="text-xs sm:text-sm tracking-[0.28em] uppercase">
+        <div
+          className="
+            text-xs
+            uppercase
+            tracking-[0.28em]
+            sm:text-sm
+          "
+        >
           Tayyaba Sadaqat
         </div>
 
         <button
-  onClick={() => setMenuOpen(true)}
-  className="
-    group
-    flex
-    items-center
-    gap-3
-    text-xs
-    uppercase
-    tracking-[0.22em]
-    sm:text-sm
-  "
->
-  Menu
+          type="button"
+          onClick={() => setMenuOpen(true)}
+          aria-label="Open navigation menu"
+          className="
+            group
+            flex
+            items-center
+            gap-3
+            text-xs
+            uppercase
+            tracking-[0.22em]
+            sm:text-sm
+          "
+        >
+          Menu
 
-  <span className="relative flex flex-col gap-1">
-    <span
-      className="
-        block
-        h-[1px]
-        w-7
-        bg-white
-        transition-transform
-        duration-300
-        group-hover:translate-x-1
-      "
-    />
+          <span className="relative flex flex-col gap-1">
+            <span
+              className="
+                block
+                h-[1px]
+                w-7
+                bg-white
+                transition-transform
+                duration-300
+                group-hover:translate-x-1
+              "
+            />
 
-    <span
-      className="
-        block
-        h-[1px]
-        w-5
-        bg-white
-        transition-transform
-        duration-300
-        group-hover:-translate-x-1
-      "
-    />
-  </span>
-</button>
+            <span
+              className="
+                block
+                h-[1px]
+                w-5
+                bg-white
+                transition-transform
+                duration-300
+                group-hover:-translate-x-1
+              "
+            />
+          </span>
+        </button>
       </motion.header>
 
-      {/* Main hero content */}
-      <div className="relative z-10 flex-1 flex items-center">
-
+      {/* Main Hero Content */}
+      <div
+        className="
+          relative
+          z-10
+          flex
+          flex-1
+          items-center
+        "
+      >
         <div className="w-full">
 
+          {/* Professional positioning */}
           <div className="overflow-hidden">
             <motion.p
               initial={{ y: "100%" }}
@@ -127,72 +173,94 @@ export default function Hero() {
                 ease: [0.16, 1, 0.3, 1],
               }}
               className="
-                text-[10px] sm:text-xs md:text-sm
-                tracking-[0.35em]
+                mb-5
+                text-[10px]
                 uppercase
+                tracking-[0.35em]
                 text-white/45
-                mb-5 sm:mb-7
+                sm:mb-7
+                sm:text-xs
+                md:text-sm
               "
             >
-              Software Engineer · Developer · Creative
+              Software Engineer · AI & Web Developer · Creative Designer
             </motion.p>
           </div>
 
-          {/* Tayyaba */}
-          <div className="overflow-hidden">
-            <motion.h1
-              initial={{ y: "110%" }}
-              animate={{ y: 0 }}
-              transition={{
-                duration: 1,
-                delay: 0.25,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="
-                font-black
-                uppercase
-                leading-[0.78]
-                tracking-[-0.06em]
-                text-[20vw]
-                sm:text-[18vw]
-                lg:text-[15vw]
-              "
-            >
-              Tayyaba
-            </motion.h1>
-          </div>
+          {/* Main SEO H1 */}
+          <h1
+            className="
+              font-black
+              uppercase
+              leading-[0.78]
+              tracking-[-0.06em]
+              text-[20vw]
+              sm:text-[18vw]
+              lg:text-[15vw]
+            "
+          >
+            {/* Tayyaba */}
+            <span className="block overflow-hidden">
+              <motion.span
+                initial={{ y: "110%" }}
+                animate={{ y: 0 }}
+                transition={{
+                  duration: 1,
+                  delay: 0.25,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="block"
+              >
+                Tayyaba
+              </motion.span>
+            </span>
 
-          {/* Sadaqat */}
-          <div className="overflow-hidden">
-            <motion.h1
-              initial={{ y: "110%" }}
-              animate={{ y: 0 }}
-              transition={{
-                duration: 1,
-                delay: 0.4,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="
-                font-black
-                uppercase
-                leading-[0.78]
-                tracking-[-0.06em]
-                text-[20vw]
-                sm:text-[18vw]
-                lg:text-[15vw]
-                bg-gradient-to-r
-                from-purple-400
-                via-violet-500
-                to-purple-600
-                bg-clip-text
-                text-transparent
-                drop-shadow-[0_0_35px_rgba(139,92,246,0.18)]
-              "
-            >
-              Sadaqat
-            </motion.h1>
-          </div>
+            {/* Sadaqat */}
+            <span className="block overflow-hidden">
+              <motion.span
+                initial={{ y: "110%" }}
+                animate={{ y: 0 }}
+                transition={{
+                  duration: 1,
+                  delay: 0.4,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="
+                  block
+                  bg-gradient-to-r
+                  from-purple-400
+                  via-violet-500
+                  to-purple-600
+                  bg-clip-text
+                  text-transparent
+                  drop-shadow-[0_0_35px_rgba(139,92,246,0.18)]
+                "
+              >
+                Sadaqat
+              </motion.span>
+            </span>
+          </h1>
 
+          {/* Search-engine-friendly supporting copy */}
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.8,
+            }}
+            className="
+              mt-7
+              max-w-2xl
+              text-sm
+              leading-relaxed
+              text-white/40
+              sm:hidden
+            "
+          >
+            Building AI-powered applications and modern web experiences
+            with React, Next.js, Python and FastAPI.
+          </motion.p>
         </div>
       </div>
 
@@ -204,19 +272,45 @@ export default function Hero() {
           duration: 1,
           delay: 1,
         }}
-        className="relative z-20 flex justify-between items-end"
+        className="
+          relative
+          z-20
+          flex
+          items-end
+          justify-between
+        "
       >
-
-        <p className="text-xs sm:text-sm leading-relaxed max-w-[300px] text-white/45">
-          Building thoughtful digital experiences through software,
-          artificial intelligence and visual creativity.
+        <p
+          className="
+            hidden
+            max-w-[430px]
+            text-xs
+            leading-relaxed
+            text-white/45
+            sm:block
+            sm:text-sm
+          "
+        >
+          Building AI-powered applications, full-stack web experiences
+          and intelligent digital products with React, Next.js, Python
+          and FastAPI.
         </p>
 
-        <div className="hidden sm:flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-white/45">
-
+        <div
+          className="
+            hidden
+            items-center
+            gap-3
+            text-xs
+            uppercase
+            tracking-[0.3em]
+            text-white/45
+            sm:flex
+          "
+        >
           Scroll
 
-          <div className="h-12 w-[1px] bg-white/15 overflow-hidden">
+          <div className="h-12 w-[1px] overflow-hidden bg-white/15">
             <motion.div
               animate={{
                 y: ["-100%", "100%"],
@@ -229,13 +323,13 @@ export default function Hero() {
               className="h-1/2 w-full bg-purple-400"
             />
           </div>
-
         </div>
       </motion.div>
+
       <MenuOverlay
-  open={menuOpen}
-  onClose={() => setMenuOpen(false)}
-/>
+        open={menuOpen}
+        onClose={() => setMenuOpen(false)}
+      />
     </section>
   );
 }

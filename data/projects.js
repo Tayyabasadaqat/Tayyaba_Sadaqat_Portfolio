@@ -2,31 +2,31 @@ export const projects = {
   nishaan: {
     number: "01",
     title: "Nishaan",
-    category: "AI-Powered Navigation",
+    category: "Landmark-Based AI Navigation",
     type: "AI Product",
     year: "2026",
 
     hero:
-      "An AI-powered landmark-based navigation platform designed for places where traditional addressing systems are limited.",
+      "An AI-powered landmark-based navigation platform designed for areas where traditional addressing systems are limited or unreliable.",
 
-    role: "Frontend + Backend",
+    role: "Frontend + Backend Development",
     status: "AI-Powered",
 
     overview:
-      "Nishaan was designed to solve a common navigation problem in areas where formal addresses, street names and lane numbers are unreliable or unavailable. Instead of depending only on traditional addresses, users can describe nearby landmarks and recognizable places.",
+      "Nishaan is an AI-powered navigation platform designed to help users locate places through landmarks and natural-language clues. Instead of relying only on street names, lane numbers or formal addresses, users can describe recognizable places such as markets, mosques, buildings and other nearby landmarks.",
 
     challenge:
-      "Traditional map navigation works best when users already know an exact address. In many locations, especially areas with informal addressing, people identify destinations through landmarks, markets, mosques, buildings and other recognizable places.",
+      "Traditional map navigation works best when users already know an exact address. In areas with informal or inconsistent addressing, however, people often identify destinations through landmarks and contextual descriptions rather than street numbers or standardized addresses.",
 
     solution:
-      "Nishaan analyzes natural-language clues and converts them into structured location information. The experience was designed around text, image and voice input so users can describe a place in the way they naturally remember it.",
+      "Nishaan uses AI to interpret natural-language location clues and transform them into structured location information that can be displayed on a map. The platform supports text, image and voice input, allowing users to describe destinations through landmarks and contextual clues rather than relying only on formal addresses.",
 
     features: [
       "Landmark-Based Location Search",
       "Natural-Language Location Analysis",
-      "Text Input",
+      "Text-Based Location Input",
       "Image-Based Location Clues",
-      "Voice Input",
+      "Voice-Based Location Input",
       "Structured Location Results",
       "Map-Based Result Display",
       "Directions from Current Location",
@@ -51,30 +51,30 @@ export const projects = {
   cotsle: {
     number: "02",
     title: "Cotsle",
-    category: "AI-Powered Web Experience",
+    category: "AI Web Experience",
     type: "AI Web Project",
     year: "2026",
 
     hero:
-      "A modern web experience enhanced with AI-powered functionality and responsive interaction.",
+      "A modern responsive web experience combining a polished interface with AI-integrated functionality.",
 
     role: "Web Development",
     status: "AI-Powered",
 
     overview:
-      "Cotsle combines a modern web interface with AI-powered functionality to create a smarter digital experience.",
+      "Cotsle is a modern web project that combines responsive frontend development with AI-integrated functionality to create a more interactive digital experience.",
 
     challenge:
-      "The project required combining a polished user experience with intelligent functionality without making the interface feel overly technical.",
+      "The project required combining intelligent functionality with a polished user experience while keeping the interface clear, responsive and approachable.",
 
     solution:
-      "The interface was structured around simplicity, responsiveness and accessible AI-powered interactions.",
+      "The experience was structured around a responsive interface, clear interactions and integrated AI functionality without allowing the technical complexity to overwhelm the user experience.",
 
     features: [
       "Responsive Web Interface",
-      "AI-Powered Features",
-      "Modern User Experience",
+      "AI-Integrated Functionality",
       "Interactive Components",
+      "Modern User Experience",
     ],
 
     tech: [
@@ -92,29 +92,29 @@ export const projects = {
   "luxe-by-ma": {
     number: "03",
     title: "Luxe by MA",
-    category: "AI-Enhanced Experience",
+    category: "AI-Enhanced Web Experience",
     type: "AI Web Project",
     year: "2026",
 
     hero:
-      "A polished digital experience combining modern interface design with AI-powered functionality.",
+      "A polished digital experience combining modern web design with AI-enhanced functionality.",
 
     role: "Web Development",
     status: "AI-Powered",
 
     overview:
-      "Luxe by MA was designed as a modern digital experience with a strong visual identity and AI-enhanced functionality.",
+      "Luxe by MA is a modern web project focused on combining a refined visual identity, responsive interface design and AI-enhanced functionality.",
 
     challenge:
-      "The goal was to create a refined web experience while integrating intelligent features without overwhelming the visual design.",
+      "The goal was to integrate intelligent functionality into a visually refined web experience without making the interface feel overly technical or distracting from the overall design.",
 
     solution:
-      "The final interface focuses on clean presentation, responsive design and AI-assisted interactions.",
+      "The final experience combines responsive web development, clean interface design and AI-assisted interactions within a cohesive digital experience.",
 
     features: [
-      "Responsive Interface",
-      "AI-Powered Features",
-      "Modern UI",
+      "Responsive Web Interface",
+      "AI-Enhanced Functionality",
+      "Modern UI Design",
       "User-Focused Experience",
     ],
 
@@ -134,7 +134,7 @@ export const projects = {
   "corvit-course-advisor": {
     number: "04",
     title: "Corvit Course Advisor",
-    category: "AI-Powered Course Guidance",
+    category: "Conversational Course Recommendation",
     type: "AI Chatbot",
     year: "2026",
 
@@ -145,13 +145,13 @@ export const projects = {
     status: "AI-Powered",
 
     overview:
-      "Corvit Course Advisor is a personalized AI chatbot created to help users explore available courses and receive conversational guidance based on their interests and learning goals.",
+      "Corvit Course Advisor is an AI chatbot designed to help users explore available courses and receive conversational guidance based on their interests and learning goals.",
 
     challenge:
-      "Users can find it difficult to understand which course best matches their interests, background or career direction when browsing multiple training options.",
+      "Choosing between multiple training programs can be difficult when users are unsure which course best matches their interests, existing knowledge or career direction.",
 
     solution:
-      "The project uses an AI-powered chatbot experience to make course discovery more conversational, accessible and personalized.",
+      "The project introduces a conversational AI experience that makes course discovery more accessible and personalized by allowing users to explore training options through natural interaction.",
 
     features: [
       "Personalized Course Guidance",
@@ -175,27 +175,27 @@ export const projects = {
   "birds-classification-model": {
     number: "05",
     title: "Birds Classification Model",
-    category: "AI-Powered Image Classification",
+    category: "Deep Learning Image Classification",
     type: "Deep Learning Project",
     year: "2026",
 
     hero:
-      "A CNN-based deep learning model designed to classify bird species from images.",
+      "A CNN-based deep learning and computer vision model designed to classify bird species from images.",
 
     role: "Machine Learning Development",
     status: "AI-Powered",
 
     overview:
-      "The Birds Classification Model is a computer vision project that uses a Convolutional Neural Network to identify and classify bird species from image input.",
+      "The Birds Classification Model is a deep learning and computer vision project that uses a Convolutional Neural Network (CNN) to identify and classify bird species from image input.",
 
     challenge:
-      "Bird species can have subtle visual differences, making image-based classification a suitable problem for deep learning and computer vision techniques.",
+      "Bird species can share similar visual characteristics, making image-based species recognition a suitable problem for deep learning and computer vision techniques.",
 
     solution:
-      "The project uses a CNN-based classification approach to learn visual patterns from bird images and predict their corresponding classes.",
+      "A CNN-based image classification pipeline was developed to learn visual patterns from bird images and predict the corresponding species from new image input.",
 
     features: [
-      "Bird Image Classification",
+      "Bird Species Classification",
       "CNN-Based Architecture",
       "Image Preprocessing",
       "Deep Learning Predictions",
@@ -217,24 +217,24 @@ export const projects = {
   "protein-secondary-structure": {
     number: "06",
     title: "Protein Secondary Structure",
-    category: "AI-Powered Prediction Dashboard",
+    category: "Machine Learning Prediction Dashboard",
     type: "Machine Learning Project",
     year: "2026",
 
     hero:
-      "A Streamlit-based dashboard designed to predict protein secondary structure.",
+      "An interactive Streamlit-based machine learning dashboard for predicting protein secondary structure.",
 
     role: "Machine Learning Development",
     status: "AI-Powered",
 
     overview:
-      "Protein Secondary Structure is a machine learning project presented through an interactive Streamlit dashboard for predicting protein secondary structure.",
+      "Protein Secondary Structure is a machine learning project presented through an interactive Streamlit dashboard for exploring protein secondary structure predictions.",
 
     challenge:
-      "Protein structure prediction involves interpreting biological sequence information and presenting prediction results in a way that is easy to explore.",
+      "Protein structure prediction involves interpreting biological information while presenting prediction results in a format that users can clearly understand and explore.",
 
     solution:
-      "The project combines a prediction workflow with a Streamlit interface so users can provide protein-related input and view the resulting secondary structure predictions.",
+      "The project combines a machine learning prediction workflow with a Streamlit interface, providing an accessible way for users to submit protein-related input and view prediction results.",
 
     features: [
       "Protein Structure Prediction",
@@ -257,72 +257,73 @@ export const projects = {
   },
 
   "project-doctor": {
-  number: "07",
-  title: "Project Doctor",
-  category: "AI-Powered Project Analysis",
-  type: "AI Analysis Tool",
-  year: "2026",
+    number: "07",
+    title: "Project Doctor",
+    category: "AI Software Project Analysis",
+    type: "AI Analysis Tool",
+    year: "2026",
 
-  hero:
-    "A Streamlit-based AI project analyzer designed to evaluate and analyze software projects.",
+    hero:
+      "An AI-powered Streamlit application designed to analyze software projects and provide structured project insights.",
 
-  role: "AI + Python Development",
-  status: "AI-Powered",
+    role: "AI + Python Development",
+    status: "AI-Powered",
 
-  overview:
-    "Project Doctor is a Streamlit-based AI project analyzer created to help examine software projects through an interactive AI-powered interface.",
+    overview:
+      "Project Doctor is an AI-powered software project analysis tool built with Python and Streamlit. It provides an interactive workflow for examining project information and presenting structured analysis through a web interface.",
 
-  challenge:
-    "Understanding the structure, quality and overall state of a software project can require manually reviewing multiple files, technologies and implementation details.",
+    challenge:
+      "Understanding the overall state of a software project can require reviewing multiple files, technologies and implementation details, making manual project evaluation time-consuming.",
 
-  solution:
-    "The project combines AI-powered analysis with a Streamlit interface to make project evaluation more interactive and accessible.",
+    solution:
+      "Project Doctor combines AI-assisted analysis with an interactive Streamlit interface to make software project evaluation more structured and accessible.",
 
-  features: [
-    "AI-Powered Project Analysis",
-    "Interactive Streamlit Interface",
-    "Project Evaluation",
-    "Automated Analysis Workflow",
-  ],
+    features: [
+      "AI-Powered Project Analysis",
+      "Interactive Streamlit Interface",
+      "Software Project Evaluation",
+      "Automated Analysis Workflow",
+    ],
 
-  tech: [
-    "Python",
-    "Streamlit",
-    "AI Integration",
-  ],
+    tech: [
+      "Python",
+      "Streamlit",
+      "AI Integration",
+    ],
 
-  image: "/creative/project-doctor-cover.png",
+    image: "/creative/project-doctor-cover.png",
 
-  live: "https://projectdoctor-aianalyzer.streamlit.app/",
-  github: "https://github.com/Tayyabasadaqat/Project_doctor",
+    live: "https://projectdoctor-aianalyzer.streamlit.app/",
+    github: "https://github.com/Tayyabasadaqat/Project_doctor",
   },
 
   "signature-trips": {
-    number: "07",
+    number: "08",
     title: "Signature Trips",
-    category: "Travel Website",
+    category: "WordPress Travel Website",
     type: "Website",
     year: "2026",
 
     hero:
-      "A travel website designed to present destinations and travel services through a polished digital experience.",
+      "A responsive WordPress travel website designed to present destinations and travel services through a polished, user-focused experience.",
 
-    role: "Website Designer",
+    role: "Web Design + WordPress Development",
     status: "Non-AI",
 
     overview:
-      "The Signature Trips website was created to establish a clear and professional online presence for a travel business.",
+      "The Signature Trips website was designed and developed to establish a clear, professional and visually engaging online presence for a travel business.",
 
     challenge:
-      "The website needed to organize travel-related information clearly while maintaining an engaging visual identity.",
+      "The website needed to organize destinations and travel-related information clearly while maintaining an engaging visual identity across different screen sizes.",
 
     solution:
-      "The site uses structured content, responsive layouts and a clean user experience to present travel services effectively.",
+      "The website uses WordPress, responsive layouts and structured content presentation to create an accessible and visually polished experience for users exploring travel services.",
 
     features: [
-      "Responsive Website",
+      "Responsive WordPress Website",
       "Travel Service Presentation",
       "Structured Content",
+      "Destination Presentation",
       "Modern Visual Design",
     ],
 
@@ -340,31 +341,31 @@ export const projects = {
   },
 
   "time-bank": {
-    number: "08",
+    number: "09",
     title: "Time Bank",
     category: "Skill Exchange Platform",
     type: "Software Platform",
     year: "2026",
 
     hero:
-      "A skill-exchange platform where users trade services using time-based credits.",
+      "A skill-exchange software platform where users trade services using time-based credits instead of traditional payment.",
 
     role: "Software Development",
     status: "Non-AI",
 
     overview:
-      "Time Bank is a software platform designed around skill exchange. Instead of traditional payment, users exchange services using time credits.",
+      "Time Bank is a software platform built around skill and service exchange. Instead of traditional monetary payment, users can exchange their time and abilities through a time-credit system.",
 
     challenge:
-      "The system needed to manage users, skills, exchanges and platform interactions while maintaining clear system relationships.",
+      "The system needed to manage users, skills, services, exchanges and platform interactions while maintaining clear relationships between different parts of the application.",
 
     solution:
-      "The project was structured using software engineering documentation, database design and a web-based implementation.",
+      "The platform was designed around structured user, service and skill-exchange workflows, supported by database integration and a web-based frontend and backend architecture.",
 
     features: [
       "User Accounts",
       "Skill Exchange",
-      "Time-Based Credits",
+      "Time-Based Credit System",
       "Database Integration",
       "Service Management",
     ],
@@ -384,35 +385,39 @@ export const projects = {
   },
 
   "donation-tracker": {
-    number: "09",
+    number: "10",
     title: "Donation Tracker",
-    category: "Blockchain System",
-    type: "Python Project",
+    category: "Blockchain Donation Tracking",
+    type: "Python Blockchain Project",
     year: "2026",
 
     hero:
-      "A blockchain-based donation tracking system focused on transparency and record integrity.",
+      "A blockchain-based donation tracking system developed to explore transparent record keeping and transaction integrity.",
 
     role: "Python Development",
     status: "Non-AI",
 
     overview:
-      "The Donation Tracker explores blockchain concepts through a donation management system where transaction records can be stored securely.",
+      "Donation Tracker is a Python project that explores blockchain concepts through a donation management system designed around transparent and tamper-resistant transaction records.",
 
     challenge:
-      "Donation systems often depend on centralized records, making transparency and record integrity important concerns.",
+      "Traditional donation systems can depend on centralized records, making transparency, traceability and record integrity important considerations when tracking transactions.",
 
     solution:
-      "The project uses blockchain concepts to demonstrate immutable donation records and transparent tracking.",
+      "The project applies blockchain concepts to demonstrate how donation transactions can be recorded in a transparent and immutable record structure.",
 
     features: [
       "Donation Tracking",
-      "Blockchain Records",
+      "Blockchain-Based Records",
       "Transaction History",
-      "Data Integrity",
+      "Record Integrity",
     ],
 
-    tech: ["Python", "Blockchain", "Security"],
+    tech: [
+      "Python",
+      "Blockchain",
+      "Security",
+    ],
 
     image: "/creative/donation-cover.png",
 
